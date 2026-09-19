@@ -1,0 +1,304 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #000;
+}
+
+.main-menu {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: clamp(24px, 5vw, 80px);
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #18243d 0%,
+      #080c18 35%,
+      #000 75%
+    );
+
+  color: white;
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+
+  background-size:
+    120px 120px,
+    180px 180px;
+
+  background-position:
+    20px 30px,
+    80px 100px;
+
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.menu-content {
+  position: relative;
+  z-index: 1;
+
+  width: min(100%, 1100px);
+
+  text-align: center;
+
+  margin-inline: auto;
+}
+
+.subtitle {
+  margin: 0 0 clamp(18px, 3vw, 30px);
+
+  font-size: clamp(10px, 1.2vw, 15px);
+
+  letter-spacing: clamp(3px, 0.6vw, 7px);
+
+  line-height: 1.5;
+
+  opacity: 0.7;
+}
+
+h1 {
+  margin: 0;
+
+  font-size: clamp(48px, 9vw, 120px);
+
+  line-height: 1.05;
+
+  font-weight: 300;
+
+  letter-spacing: clamp(5px, 1.2vw, 14px);
+
+  white-space: nowrap;
+}
+
+.description {
+  margin: clamp(20px, 3vw, 30px) 0 clamp(32px, 5vw, 50px);
+
+  font-size: clamp(14px, 1.6vw, 20px);
+
+  line-height: 1.5;
+
+  letter-spacing: clamp(1px, 0.3vw, 4px);
+
+  opacity: 0.75;
+}
+
+.start-button {
+  min-width: clamp(190px, 25vw, 280px);
+
+  padding: clamp(13px, 1.5vw, 18px)
+    clamp(25px, 4vw, 50px);
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  background: rgba(255, 255, 255, 0.05);
+
+  color: white;
+
+  font-size: clamp(12px, 1.2vw, 16px);
+
+  letter-spacing: clamp(2px, 0.3vw, 4px);
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.start-button:hover {
+  background: white;
+  color: black;
+  transform: scale(1.05);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .main-menu {
+    padding: 30px 24px;
+  }
+
+  h1 {
+    white-space: normal;
+  }
+
+  .menu-content {
+    max-width: 650px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .main-menu {
+    padding: 24px 18px;
+  }
+
+  .subtitle {
+    letter-spacing: 2.5px;
+  }
+
+  h1 {
+    letter-spacing: 5px;
+  }
+
+  .description {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .start-button {
+    width: min(100%, 280px);
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  h1 {
+    font-size: 42px;
+    letter-spacing: 3px;
+  }
+
+  .subtitle {
+    font-size: 9px;
+  }
+}
+/* ========================================
+   EARTH MISSION
+======================================== */
+
+.earth-mission {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: clamp(24px, 5vw, 80px);
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      #172b46 0%,
+      #08111f 40%,
+      #02050a 75%,
+      #000 100%
+    );
+
+  color: white;
+}
+
+.earth-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 115%,
+      rgba(60, 100, 150, 0.35),
+      transparent 45%
+    );
+
+  pointer-events: none;
+}
+
+.mission-content {
+  position: relative;
+  z-index: 1;
+
+  width: min(100%, 800px);
+
+  margin-inline: auto;
+
+  text-align: center;
+}
+
+.mission-number {
+  margin: 0 0 clamp(18px, 3vw, 28px);
+
+  font-size: clamp(11px, 1.2vw, 15px);
+
+  letter-spacing: clamp(3px, 0.6vw, 7px);
+
+  opacity: 0.65;
+}
+
+.mission-content h1 {
+  margin: 0;
+
+  font-size: clamp(55px, 10vw, 130px);
+
+  font-weight: 300;
+
+  letter-spacing: clamp(6px, 1vw, 12px);
+
+  line-height: 1;
+}
+
+.earth-line {
+  width: min(160px, 35vw);
+  height: 1px;
+
+  margin: clamp(24px, 4vw, 38px) auto;
+
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.mission-description {
+  max-width: 650px;
+
+  margin: 10px auto;
+
+  font-size: clamp(14px, 1.5vw, 18px);
+
+  line-height: 1.7;
+
+  letter-spacing: clamp(0.5px, 0.15vw, 2px);
+
+  opacity: 0.75;
+}
+
+.mission-content .start-button {
+  margin-top: clamp(25px, 4vw, 45px);
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .earth-mission {
+    padding: 24px 18px;
+  }
+
+  .mission-description {
+    max-width: 340px;
+  }
+}
