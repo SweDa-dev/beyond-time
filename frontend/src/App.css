@@ -1,3 +1,7 @@
+/* ========================================
+   GLOBAL
+======================================== */
+
 * {
   box-sizing: border-box;
 }
@@ -15,10 +19,17 @@ body {
   background: #000;
 }
 
+
+/* ========================================
+   MAIN MENU
+======================================== */
+
 .main-menu {
   position: relative;
+
   width: 100%;
   min-height: 100dvh;
+
   overflow: hidden;
 
   display: flex;
@@ -38,8 +49,14 @@ body {
   color: white;
 }
 
+
+/* ========================================
+   STAR BACKGROUND
+======================================== */
+
 .stars {
   position: absolute;
+
   inset: 0;
 
   background-image:
@@ -55,11 +72,18 @@ body {
     80px 100px;
 
   opacity: 0.35;
+
   pointer-events: none;
 }
 
+
+/* ========================================
+   MAIN MENU CONTENT
+======================================== */
+
 .menu-content {
   position: relative;
+
   z-index: 1;
 
   width: min(100%, 1100px);
@@ -69,59 +93,85 @@ body {
   margin-inline: auto;
 }
 
+
 .subtitle {
-  margin: 0 0 clamp(18px, 3vw, 30px);
+  margin:
+    0
+    0
+    clamp(18px, 3vw, 30px);
 
-  font-size: clamp(10px, 1.2vw, 15px);
+  font-size:
+    clamp(10px, 1.2vw, 15px);
 
-  letter-spacing: clamp(3px, 0.6vw, 7px);
+  letter-spacing:
+    clamp(3px, 0.6vw, 7px);
 
   line-height: 1.5;
 
   opacity: 0.7;
 }
 
-h1 {
+
+.main-menu h1 {
   margin: 0;
 
-  font-size: clamp(48px, 9vw, 120px);
+  font-size:
+    clamp(48px, 9vw, 120px);
 
   line-height: 1.05;
 
   font-weight: 300;
 
-  letter-spacing: clamp(5px, 1.2vw, 14px);
+  letter-spacing:
+    clamp(5px, 1.2vw, 14px);
 
   white-space: nowrap;
 }
 
-.description {
-  margin: clamp(20px, 3vw, 30px) 0 clamp(32px, 5vw, 50px);
 
-  font-size: clamp(14px, 1.6vw, 20px);
+.description {
+  margin:
+    clamp(20px, 3vw, 30px)
+    0
+    clamp(32px, 5vw, 50px);
+
+  font-size:
+    clamp(14px, 1.6vw, 20px);
 
   line-height: 1.5;
 
-  letter-spacing: clamp(1px, 0.3vw, 4px);
+  letter-spacing:
+    clamp(1px, 0.3vw, 4px);
 
   opacity: 0.75;
 }
 
-.start-button {
-  min-width: clamp(190px, 25vw, 280px);
 
-  padding: clamp(13px, 1.5vw, 18px)
+/* ========================================
+   COMMON BUTTON
+======================================== */
+
+.start-button {
+  min-width:
+    clamp(190px, 25vw, 280px);
+
+  padding:
+    clamp(13px, 1.5vw, 18px)
     clamp(25px, 4vw, 50px);
 
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border:
+    1px solid rgba(255, 255, 255, 0.6);
 
-  background: rgba(255, 255, 255, 0.05);
+  background:
+    rgba(255, 255, 255, 0.05);
 
   color: white;
 
-  font-size: clamp(12px, 1.2vw, 16px);
+  font-size:
+    clamp(12px, 1.2vw, 16px);
 
-  letter-spacing: clamp(2px, 0.3vw, 4px);
+  letter-spacing:
+    clamp(2px, 0.3vw, 4px);
 
   cursor: pointer;
 
@@ -131,19 +181,29 @@ h1 {
     transform 0.3s ease;
 }
 
+
 .start-button:hover {
   background: white;
+
   color: black;
+
   transform: scale(1.05);
 }
 
-/* Tablet */
+
+/* ========================================
+   MAIN MENU TABLET
+======================================== */
+
 @media (max-width: 768px) {
+
   .main-menu {
-    padding: 30px 24px;
+    padding:
+      30px
+      24px;
   }
 
-  h1 {
+  .main-menu h1 {
     white-space: normal;
   }
 
@@ -152,35 +212,50 @@ h1 {
   }
 }
 
-/* Mobile */
+
+/* ========================================
+   MAIN MENU MOBILE
+======================================== */
+
 @media (max-width: 480px) {
+
   .main-menu {
-    padding: 24px 18px;
+    padding:
+      24px
+      18px;
   }
 
   .subtitle {
     letter-spacing: 2.5px;
   }
 
-  h1 {
+  .main-menu h1 {
     letter-spacing: 5px;
   }
 
   .description {
     max-width: 300px;
+
     margin-left: auto;
     margin-right: auto;
   }
 
   .start-button {
-    width: min(100%, 280px);
+    width:
+      min(100%, 280px);
   }
 }
 
-/* Very small phones */
+
+/* ========================================
+   VERY SMALL PHONES
+======================================== */
+
 @media (max-width: 360px) {
-  h1 {
+
+  .main-menu h1 {
     font-size: 42px;
+
     letter-spacing: 3px;
   }
 
@@ -188,117 +263,4801 @@ h1 {
     font-size: 9px;
   }
 }
-/* ========================================
+
+
+/* =========================================================
+   =========================================================
    EARTH MISSION
-======================================== */
+   =========================================================
+   ========================================================= */
 
 .earth-mission {
   position: relative;
+
   width: 100%;
-  min-height: 100dvh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: clamp(24px, 5vw, 80px);
+  height: 100dvh;
 
   overflow: hidden;
 
-  background:
-    radial-gradient(
-      circle at 50% 30%,
-      #172b46 0%,
-      #08111f 40%,
-      #02050a 75%,
-      #000 100%
-    );
+  background: #000;
 
   color: white;
 }
 
+
+/* ========================================
+   EARTH BACKGROUND OVERLAY
+======================================== */
+
 .earth-overlay {
   position: absolute;
+
   inset: 0;
+
+  z-index: 0;
 
   background:
     radial-gradient(
-      circle at 50% 115%,
-      rgba(60, 100, 150, 0.35),
-      transparent 45%
+      circle at 50% 45%,
+      rgba(15, 35, 65, 0.35),
+      transparent 55%
+    ),
+    linear-gradient(
+      to bottom,
+      #02050a 0%,
+      #030913 45%,
+      #000 100%
     );
 
   pointer-events: none;
 }
 
-.mission-content {
-  position: relative;
+
+/* ========================================
+   EARTH VISUAL SCENE
+======================================== */
+
+.earth-scene {
+  position: absolute;
+
+  inset: 0;
+
   z-index: 1;
 
-  width: min(100%, 800px);
+  overflow: hidden;
 
-  margin-inline: auto;
+  pointer-events: none;
+}
+
+
+/* ========================================
+   EARTH ATMOSPHERIC GLOW
+======================================== */
+
+.earth-glow {
+  position: absolute;
+
+  width:
+    min(65vw, 800px);
+
+  height:
+    min(65vw, 800px);
+
+  left: 50%;
+
+  top: 88%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(80, 160, 255, 0.22) 0%,
+      rgba(50, 120, 220, 0.12) 35%,
+      rgba(20, 70, 140, 0.05) 55%,
+      transparent 72%
+    );
+
+  filter: blur(25px);
+}
+
+
+/* ========================================
+   EARTH PLANET
+======================================== */
+
+.earth-planet {
+  position: absolute;
+
+  width:
+    min(48vw, 620px);
+
+  height:
+    min(48vw, 620px);
+
+  left: 50%;
+
+  top: 105%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 28%,
+      rgba(255, 255, 255, 0.18),
+      transparent 10%
+    ),
+    radial-gradient(
+      circle at 42% 42%,
+      #287dbd 0%,
+      #17527f 32%,
+      #0b304d 60%,
+      #020913 100%
+    );
+
+  box-shadow:
+    0 0 30px rgba(80, 160, 255, 0.25),
+    0 0 80px rgba(40, 120, 220, 0.18),
+    inset -30px -20px 80px rgba(0, 0, 0, 0.6);
+
+  opacity: 0.95;
+
+  overflow: hidden;
+}
+
+
+/* ========================================
+   EARTH ATMOSPHERIC EDGE
+======================================== */
+
+.earth-planet::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -2%;
+
+  border-radius: 50%;
+
+  border:
+    2px solid rgba(100, 190, 255, 0.28);
+
+  box-shadow:
+    0 0 25px rgba(80, 170, 255, 0.25),
+    0 0 60px rgba(50, 130, 220, 0.12);
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   EARTH CLOUD LAYER
+======================================== */
+
+.earth-clouds {
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse at 25% 35%,
+      rgba(255, 255, 255, 0.22),
+      transparent 12%
+    ),
+    radial-gradient(
+      ellipse at 65% 28%,
+      rgba(255, 255, 255, 0.16),
+      transparent 13%
+    ),
+    radial-gradient(
+      ellipse at 70% 58%,
+      rgba(255, 255, 255, 0.14),
+      transparent 16%
+    ),
+    radial-gradient(
+      ellipse at 35% 70%,
+      rgba(255, 255, 255, 0.12),
+      transparent 15%
+    );
+
+  filter: blur(8px);
+
+  opacity: 0.55;
+}
+
+
+/* =========================================================
+   THREE-AREA GAME LAYOUT
+   TOP / SCROLL / BOTTOM
+========================================================= */
+
+.earth-layout {
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+
+  grid-template-rows:
+    90px
+    minmax(0, 1fr)
+    150px;
+}
+
+
+/* ========================================
+   FIXED TOP HUD AREA
+======================================== */
+
+.earth-header {
+  position: relative;
+
+  z-index: 20;
+
+  display: flex;
+
+  align-items: center;
+
+  padding:
+    0
+    clamp(1rem, 3vw, 2.5rem);
+
+  background:
+    rgba(0, 0, 0, 0.18);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(8px);
+}
+
+
+/* ========================================
+   TOP HUD
+======================================== */
+
+.hud-top {
+  width: 100%;
+
+  max-width: 1400px;
+
+  margin:
+    0
+    auto;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  color:
+    rgba(255, 255, 255, 0.82);
+
+  font-size:
+    clamp(0.65rem, 1vw, 0.85rem);
+
+  letter-spacing: 0.18em;
+}
+
+
+/* ========================================
+   SCROLLABLE MIDDLE AREA
+======================================== */
+
+.mission-scroll-area {
+  position: relative;
+
+  min-height: 0;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  padding:
+    clamp(40px, 6vh, 80px)
+    clamp(18px, 4vw, 40px);
+}
+
+
+/* ========================================
+   SCROLLBAR
+======================================== */
+
+.mission-scroll-area::-webkit-scrollbar {
+  width: 5px;
+}
+
+.mission-scroll-area::-webkit-scrollbar-track {
+  background:
+    rgba(255, 255, 255, 0.03);
+}
+
+.mission-scroll-area::-webkit-scrollbar-thumb {
+  background:
+    rgba(255, 255, 255, 0.25);
+
+  border-radius: 10px;
+}
+
+
+/* ========================================
+   MISSION CONTENT
+======================================== */
+
+.mission-content {
+  width:
+    min(700px, 100%);
+
+  margin:
+    0
+    auto;
+
+  padding:
+    20px
+    20px
+    100px;
 
   text-align: center;
 }
 
+
+/* ========================================
+   MISSION NUMBER
+======================================== */
+
 .mission-number {
-  margin: 0 0 clamp(18px, 3vw, 28px);
+  margin:
+    0
+    0
+    clamp(18px, 3vw, 28px);
 
-  font-size: clamp(11px, 1.2vw, 15px);
+  font-size:
+    clamp(11px, 1.2vw, 15px);
 
-  letter-spacing: clamp(3px, 0.6vw, 7px);
+  letter-spacing:
+    clamp(3px, 0.6vw, 7px);
+
+  line-height: 1.5;
 
   opacity: 0.65;
 }
 
+
+/* ========================================
+   MISSION TITLE
+======================================== */
+
 .mission-content h1 {
   margin: 0;
 
-  font-size: clamp(55px, 10vw, 130px);
+  font-size:
+    clamp(55px, 10vw, 130px);
 
   font-weight: 300;
 
-  letter-spacing: clamp(6px, 1vw, 12px);
+  letter-spacing:
+    clamp(6px, 1vw, 12px);
 
   line-height: 1;
 }
 
+
+/* ========================================
+   EARTH DIVIDER
+======================================== */
+
 .earth-line {
-  width: min(160px, 35vw);
+  width:
+    min(160px, 35vw);
+
   height: 1px;
 
-  margin: clamp(24px, 4vw, 38px) auto;
+  margin:
+    clamp(24px, 4vw, 38px)
+    auto;
 
-  background: rgba(255, 255, 255, 0.5);
+  background:
+    rgba(255, 255, 255, 0.5);
 }
+
+
+/* ========================================
+   MISSION DESCRIPTION
+======================================== */
 
 .mission-description {
   max-width: 650px;
 
-  margin: 10px auto;
+  margin:
+    10px
+    auto;
 
-  font-size: clamp(14px, 1.5vw, 18px);
+  font-size:
+    clamp(14px, 1.5vw, 18px);
 
   line-height: 1.7;
 
-  letter-spacing: clamp(0.5px, 0.15vw, 2px);
+  letter-spacing:
+    clamp(0.5px, 0.15vw, 2px);
 
-  opacity: 0.75;
+  color:
+    rgba(255, 255, 255, 0.78);
 }
+
+
+/* ========================================
+   BEGIN MISSION BUTTON
+======================================== */
 
 .mission-content .start-button {
-  margin-top: clamp(25px, 4vw, 45px);
+  margin-top: 2rem;
 }
 
-/* Mobile */
 
-@media (max-width: 480px) {
-  .earth-mission {
-    padding: 24px 18px;
+/* ========================================
+   FIXED BOTTOM HUD AREA
+======================================== */
+
+.earth-footer {
+  position: relative;
+
+  z-index: 20;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    0
+    clamp(1rem, 3vw, 2.5rem);
+
+  background:
+    rgba(0, 0, 0, 0.28);
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(8px);
+}
+
+
+/* ========================================
+   BOTTOM HUD
+======================================== */
+
+.hud-bottom {
+  width:
+    min(1000px, 100%);
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(120px, 1fr)
+    minmax(120px, 1fr)
+    minmax(120px, 1fr)
+    auto;
+
+  gap:
+    clamp(0.8rem, 2vw, 2rem);
+
+  padding:
+    clamp(0.8rem, 2vw, 1.2rem);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.18);
+
+  background:
+    rgba(0, 0, 0, 0.35);
+
+  backdrop-filter: blur(10px);
+}
+
+
+/* ========================================
+   HUD STAT
+======================================== */
+
+.hud-stat {
+  display: grid;
+
+  grid-template-columns:
+    auto
+    1fr
+    auto;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  color: white;
+
+  font-size:
+    clamp(0.65rem, 1vw, 0.8rem);
+}
+
+
+/* ========================================
+   HUD LABEL
+======================================== */
+
+.hud-label {
+  letter-spacing: 0.12em;
+
+  color:
+    rgba(255, 255, 255, 0.65);
+}
+
+
+/* ========================================
+   HUD BAR
+======================================== */
+
+.hud-bar {
+  height: 4px;
+
+  min-width: 60px;
+
+  background:
+    rgba(255, 255, 255, 0.15);
+
+  overflow: hidden;
+}
+
+
+/* ========================================
+   HUD BAR FILL
+======================================== */
+
+.hud-fill {
+  height: 100%;
+
+  background: white;
+
+  transition:
+    width 0.5s ease;
+}
+
+
+/* ========================================
+   DISTANCE
+======================================== */
+
+.hud-distance {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 0.25rem;
+
+  color: white;
+
+  white-space: nowrap;
+}
+
+
+.hud-distance strong {
+  font-size:
+    clamp(0.8rem, 1.2vw, 1rem);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .earth-layout {
+    grid-template-rows:
+      80px
+      minmax(0, 1fr)
+      180px;
   }
 
+
+  .hud-bottom {
+    grid-template-columns:
+      1fr
+      1fr;
+  }
+
+
+  .earth-planet {
+    width:
+      min(65vw, 500px);
+
+    height:
+      min(65vw, 500px);
+
+    top: 105%;
+  }
+
+
+  .earth-glow {
+    width: 85vw;
+
+    height: 85vw;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+  .earth-layout {
+    grid-template-rows:
+      70px
+      minmax(0, 1fr)
+      250px;
+  }
+
+
+  .earth-header {
+    padding:
+      0
+      18px;
+  }
+
+
+  .earth-footer {
+    padding:
+      0
+      12px;
+  }
+
+
+  .mission-scroll-area {
+    padding:
+      30px
+      18px;
+  }
+
+
+  .mission-content {
+    padding:
+      20px
+      12px
+      80px;
+  }
+
+
+  .hud-top {
+    font-size: 0.6rem;
+
+    letter-spacing: 0.12em;
+  }
+
+
+  .hud-bottom {
+    grid-template-columns: 1fr;
+
+    gap: 0.7rem;
+  }
+
+
+  .hud-stat {
+    grid-template-columns:
+      60px
+      1fr
+      auto;
+  }
+
+
+  .hud-distance {
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    align-items: center;
+  }
+
+
+  .earth-planet {
+    width: 90vw;
+
+    height: 90vw;
+
+    top: 108%;
+  }
+
+
+  .earth-glow {
+    width: 120vw;
+
+    height: 120vw;
+
+    top: 100%;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .earth-layout {
+    grid-template-rows:
+      65px
+      minmax(0, 1fr)
+      250px;
+  }
+
+
+  .mission-content h1 {
+    font-size: 48px;
+
+    letter-spacing: 4px;
+  }
+
+
   .mission-description {
-    max-width: 340px;
+    font-size: 13px;
+  }
+
+
+  .hud-stat {
+    grid-template-columns:
+      52px
+      1fr
+      auto;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .start-button {
+    transition: none;
+  }
+
+  .hud-fill {
+    transition: none;
+  }
+}
+
+
+ /* =========================================================
+    MISSION BRIEFING
+ ========================================================= */
+
+.mission-briefing {
+  position: relative;
+
+  width: 100%;
+  height: 100dvh;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    clamp(30px, 5vw, 70px)
+    clamp(18px, 4vw, 40px);
+
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      #16253d 0%,
+      #080d18 42%,
+      #000 85%
+    );
+
+  color: white;
+}
+
+
+/* ========================================
+   BRIEFING BACKGROUND
+======================================== */
+
+.briefing-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(80, 150, 220, 0.08),
+      transparent 55%
+    );
+}
+
+
+/* ========================================
+   BRIEFING CONTENT
+======================================== */
+
+.briefing-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(900px, 100%);
+
+  max-height: 100%;
+
+  overflow-y: auto;
+
+  margin: 0 auto;
+
+  padding:
+    clamp(20px, 4vw, 45px);
+
+  text-align: center;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  background:
+    rgba(0, 0, 0, 0.28);
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 0 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ========================================
+   BRIEFING SCROLLBAR
+======================================== */
+
+.briefing-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.briefing-content::-webkit-scrollbar-track {
+  background:
+    rgba(255, 255, 255, 0.03);
+}
+
+.briefing-content::-webkit-scrollbar-thumb {
+  background:
+    rgba(255, 255, 255, 0.25);
+
+  border-radius: 10px;
+}
+
+
+/* ========================================
+   MISSION LABEL
+======================================== */
+
+.briefing-label {
+  margin:
+    0
+    0
+    clamp(14px, 2vw, 22px);
+
+  font-size:
+    clamp(10px, 1vw, 14px);
+
+  letter-spacing:
+    clamp(3px, 0.6vw, 7px);
+
+  opacity: 0.6;
+}
+
+
+/* ========================================
+   TITLE
+======================================== */
+
+.briefing-content h1 {
+  margin: 0;
+
+  font-size:
+    clamp(32px, 6vw, 72px);
+
+  font-weight: 300;
+
+  line-height: 1.1;
+
+  letter-spacing:
+    clamp(4px, 0.8vw, 10px);
+}
+
+
+/* ========================================
+   DIVIDER
+======================================== */
+
+.briefing-line {
+  width:
+    min(160px, 35vw);
+
+  height: 1px;
+
+  margin:
+    clamp(22px, 3vw, 35px)
+    auto;
+
+  background:
+    rgba(255, 255, 255, 0.5);
+}
+
+
+/* ========================================
+   BRIEFING TEXT
+======================================== */
+
+.briefing-text {
+  width: min(680px, 100%);
+
+  margin:
+    10px
+    auto;
+
+  font-size:
+    clamp(13px, 1.4vw, 17px);
+
+  line-height: 1.75;
+
+  letter-spacing:
+    clamp(0.3px, 0.12vw, 1.5px);
+
+  color:
+    rgba(255, 255, 255, 0.76);
+}
+
+
+/* ========================================
+   OBJECTIVE SECTION
+======================================== */
+
+.briefing-section {
+  width: min(680px, 100%);
+
+  margin:
+    clamp(28px, 4vw, 45px)
+    auto
+    0;
+
+  padding:
+    clamp(18px, 2.5vw, 28px);
+
+  text-align: left;
+
+  border-left:
+    2px solid rgba(255, 255, 255, 0.35);
+
+  background:
+    rgba(255, 255, 255, 0.025);
+}
+
+
+.briefing-section h2 {
+  margin:
+    0
+    0
+    10px;
+
+  font-size:
+    clamp(11px, 1vw, 14px);
+
+  font-weight: 400;
+
+  letter-spacing:
+    clamp(2px, 0.4vw, 5px);
+
+  opacity: 0.6;
+}
+
+
+.briefing-section p {
+  margin: 0;
+
+  font-size:
+    clamp(13px, 1.3vw, 16px);
+
+  line-height: 1.7;
+
+  color:
+    rgba(255, 255, 255, 0.8);
+}
+
+
+/* ========================================
+   MISSION DETAILS
+======================================== */
+
+.briefing-details {
+  width: min(680px, 100%);
+
+  margin:
+    clamp(25px, 4vw, 40px)
+    auto
+    0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap:
+    1px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  background:
+    rgba(255, 255, 255, 0.1);
+}
+
+
+.briefing-detail {
+  min-height: 90px;
+
+  padding:
+    18px
+    12px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  background:
+    rgba(0, 0, 0, 0.35);
+}
+
+
+.briefing-detail span {
+  font-size:
+    clamp(9px, 0.9vw, 12px);
+
+  letter-spacing:
+    0.18em;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+}
+
+
+.briefing-detail strong {
+  font-size:
+    clamp(10px, 1vw, 13px);
+
+  font-weight: 400;
+
+  line-height: 1.4;
+
+  letter-spacing:
+    0.08em;
+
+  color:
+    rgba(255, 255, 255, 0.9);
+}
+
+
+/* ========================================
+   ACCEPT MISSION
+======================================== */
+
+.briefing-content .start-button {
+  margin-top:
+    clamp(28px, 4vw, 45px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .mission-briefing {
+    align-items: flex-start;
+
+    padding:
+      30px
+      18px;
+  }
+
+
+  .briefing-content {
+    margin:
+      0
+      auto;
+  }
+
+
+  .briefing-details {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .briefing-detail {
+    min-height: 70px;
+
+    text-align: center;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+  .mission-briefing {
+    padding:
+      20px
+      12px;
+  }
+
+
+  .briefing-content {
+    padding:
+      24px
+      18px;
+  }
+
+
+  .briefing-content h1 {
+    font-size: 32px;
+
+    letter-spacing: 4px;
+  }
+
+
+  .briefing-text {
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+
+
+  .briefing-section {
+    padding:
+      16px;
+
+    text-align: left;
+  }
+
+
+  .briefing-detail {
+    padding:
+      15px
+      10px;
+  }
+
+
+  .briefing-content .start-button {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .briefing-content {
+    padding:
+      20px
+      14px;
+  }
+
+
+  .briefing-content h1 {
+    font-size: 27px;
+
+    letter-spacing: 3px;
+  }
+
+
+  .briefing-label {
+    font-size: 9px;
+  }
+}
+
+ /* =========================================================
+    EARTH EXPLORATION
+ ========================================================= */
+
+.earth-exploration {
+  position: relative;
+
+  width: 100%;
+  height: 100dvh;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    clamp(24px, 5vw, 60px)
+    clamp(18px, 4vw, 40px);
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #16263e 0%,
+      #080e19 42%,
+      #000 85%
+    );
+
+  color: white;
+}
+
+
+/* ========================================
+   BACKGROUND
+======================================== */
+
+.exploration-background {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 70%,
+      rgba(60, 140, 220, 0.12),
+      transparent 45%
+    );
+}
+
+
+/* ========================================
+   STARS
+======================================== */
+
+.exploration-stars {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.35;
+
+  background-image:
+    radial-gradient(
+      white 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      white 1px,
+      transparent 1px
+    );
+
+  background-size:
+    130px 130px,
+    190px 190px;
+
+  background-position:
+    20px 40px,
+    80px 110px;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.exploration-header {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 5;
+
+  height:
+    clamp(65px, 8vh, 90px);
+
+  padding:
+    0
+    clamp(18px, 4vw, 50px);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  background:
+    rgba(0, 0, 0, 0.18);
+
+  backdrop-filter: blur(8px);
+}
+
+
+/* ========================================
+   BRAND
+======================================== */
+
+.exploration-brand {
+  font-size:
+    clamp(10px, 1vw, 14px);
+
+  letter-spacing:
+    clamp(2px, 0.35vw, 5px);
+
+  color:
+    rgba(255, 255, 255, 0.8);
+}
+
+
+/* ========================================
+   MISSION
+======================================== */
+
+.exploration-mission {
+  font-size:
+    clamp(10px, 1vw, 14px);
+
+  letter-spacing:
+    clamp(2px, 0.35vw, 5px);
+
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+
+/* ========================================
+   MAIN CONTENT
+======================================== */
+
+.exploration-content {
+  position: relative;
+
+  z-index: 2;
+
+  width:
+    min(850px, 100%);
+
+  max-height:
+    calc(100dvh - 120px);
+
+  overflow-y: auto;
+
+  margin:
+    60px
+    auto
+    0;
+
+  padding:
+    clamp(25px, 4vw, 45px);
+
+  text-align: center;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  background:
+    rgba(0, 0, 0, 0.28);
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 0 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ========================================
+   SCROLLBAR
+======================================== */
+
+.exploration-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.exploration-content::-webkit-scrollbar-track {
+  background:
+    rgba(255, 255, 255, 0.03);
+}
+
+.exploration-content::-webkit-scrollbar-thumb {
+  background:
+    rgba(255, 255, 255, 0.25);
+
+  border-radius: 10px;
+}
+
+
+/* ========================================
+   LABEL
+======================================== */
+
+.exploration-label {
+  margin:
+    0
+    0
+    clamp(14px, 2vw, 22px);
+
+  font-size:
+    clamp(10px, 1vw, 14px);
+
+  letter-spacing:
+    clamp(3px, 0.55vw, 7px);
+
+  opacity: 0.6;
+}
+
+
+/* ========================================
+   TITLE
+======================================== */
+
+.exploration-content h1 {
+  margin: 0;
+
+  font-size:
+    clamp(35px, 6vw, 75px);
+
+  font-weight: 300;
+
+  line-height: 1.1;
+
+  letter-spacing:
+    clamp(4px, 0.8vw, 10px);
+}
+
+
+/* ========================================
+   DIVIDER
+======================================== */
+
+.exploration-line {
+  width:
+    min(160px, 35vw);
+
+  height: 1px;
+
+  margin:
+    clamp(22px, 3vw, 35px)
+    auto;
+
+  background:
+    rgba(255, 255, 255, 0.5);
+}
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.exploration-description {
+  width:
+    min(650px, 100%);
+
+  margin:
+    0
+    auto;
+
+  font-size:
+    clamp(13px, 1.4vw, 17px);
+
+  line-height: 1.75;
+
+  letter-spacing:
+    clamp(0.3px, 0.12vw, 1.5px);
+
+  color:
+    rgba(255, 255, 255, 0.75);
+}
+
+
+/* ========================================
+   SHIP STATUS
+======================================== */
+
+.ship-status {
+  width:
+    min(700px, 100%);
+
+  margin:
+    clamp(28px, 4vw, 42px)
+    auto
+    0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 1px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  background:
+    rgba(255, 255, 255, 0.1);
+}
+
+
+/* ========================================
+   STATUS ITEM
+======================================== */
+
+.ship-status-item {
+  min-height: 95px;
+
+  padding:
+    18px
+    12px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 8px;
+
+  background:
+    rgba(0, 0, 0, 0.35);
+}
+
+
+.ship-status-item span {
+  font-size:
+    clamp(9px, 0.9vw, 12px);
+
+  letter-spacing:
+    0.18em;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+}
+
+
+.ship-status-item strong {
+  font-size:
+    clamp(11px, 1vw, 14px);
+
+  font-weight: 400;
+
+  line-height: 1.4;
+
+  letter-spacing:
+    0.08em;
+
+  color:
+    rgba(255, 255, 255, 0.9);
+}
+
+
+/* ========================================
+   OBJECTIVE
+======================================== */
+
+.exploration-objective {
+  width:
+    min(700px, 100%);
+
+  margin:
+    clamp(25px, 4vw, 40px)
+    auto
+    0;
+
+  padding:
+    clamp(18px, 2.5vw, 28px);
+
+  text-align: left;
+
+  border-left:
+    2px solid rgba(255, 255, 255, 0.35);
+
+  background:
+    rgba(255, 255, 255, 0.025);
+}
+
+
+.exploration-objective span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size:
+    clamp(10px, 1vw, 13px);
+
+  letter-spacing:
+    clamp(2px, 0.4vw, 5px);
+
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+
+.exploration-objective p {
+  margin: 0;
+
+  font-size:
+    clamp(13px, 1.3vw, 16px);
+
+  line-height: 1.7;
+
+  color:
+    rgba(255, 255, 255, 0.8);
+}
+
+
+/* ========================================
+   LAUNCH BUTTON
+======================================== */
+
+.exploration-content .start-button {
+  margin-top:
+    clamp(28px, 4vw, 45px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .ship-status {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+  .earth-exploration {
+    align-items: flex-start;
+
+    padding:
+      20px
+      12px;
+  }
+
+
+  .exploration-header {
+    padding:
+      0
+      18px;
+  }
+
+
+  .exploration-content {
+    margin-top:
+      70px;
+
+    max-height:
+      calc(100dvh - 90px);
+
+    padding:
+      24px
+      18px;
+  }
+
+
+  .exploration-content h1 {
+    font-size: 32px;
+
+    letter-spacing: 4px;
+  }
+
+
+  .exploration-description {
+    font-size: 13px;
+  }
+
+
+  .ship-status {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .ship-status-item {
+    min-height: 70px;
+  }
+
+
+  .exploration-objective {
+    padding:
+      16px;
+  }
+
+
+  .exploration-content .start-button {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .exploration-content {
+    padding:
+      20px
+      14px;
+  }
+
+
+  .exploration-content h1 {
+    font-size: 27px;
+
+    letter-spacing: 3px;
+  }
+
+}
+
+/* =========================================================
+   LAUNCH SEQUENCE
+========================================================= */
+
+.launch-sequence {
+  position: relative;
+
+  width: 100%;
+  height: 100dvh;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    clamp(24px, 5vw, 60px)
+    clamp(18px, 4vw, 40px);
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #182b45 0%,
+      #080e19 42%,
+      #000 85%
+    );
+
+  color: white;
+}
+
+
+/* ========================================
+   SPACE BACKGROUND
+======================================== */
+
+.launch-space {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 65%,
+      rgba(70, 150, 230, 0.12),
+      transparent 45%
+    );
+}
+
+
+/* ========================================
+   STARS
+======================================== */
+
+.launch-stars {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.4;
+
+  background-image:
+    radial-gradient(
+      white 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      white 1px,
+      transparent 1px
+    );
+
+  background-size:
+    120px 120px,
+    190px 190px;
+
+  background-position:
+    30px 50px,
+    90px 120px;
+}
+
+
+/* ========================================
+   LAUNCH CONTENT
+======================================== */
+
+.launch-content {
+  position: relative;
+
+  z-index: 2;
+
+  width:
+    min(850px, 100%);
+
+  max-height:
+    calc(100dvh - 80px);
+
+  overflow-y: auto;
+
+  margin:
+    20px
+    auto;
+
+  padding:
+    clamp(25px, 4vw, 45px);
+
+  text-align: center;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  background:
+    rgba(0, 0, 0, 0.3);
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 0 50px rgba(0, 0, 0, 0.4);
+}
+
+
+/* ========================================
+   SCROLLBAR
+======================================== */
+
+.launch-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.launch-content::-webkit-scrollbar-track {
+  background:
+    rgba(255, 255, 255, 0.03);
+}
+
+.launch-content::-webkit-scrollbar-thumb {
+  background:
+    rgba(255, 255, 255, 0.25);
+
+  border-radius: 10px;
+}
+
+
+/* ========================================
+   MISSION LABEL
+======================================== */
+
+.launch-label {
+  margin:
+    0
+    0
+    clamp(14px, 2vw, 22px);
+
+  font-size:
+    clamp(10px, 1vw, 14px);
+
+  letter-spacing:
+    clamp(3px, 0.55vw, 7px);
+
+  opacity: 0.6;
+}
+
+
+/* ========================================
+   TITLE
+======================================== */
+
+.launch-content h1 {
+  margin: 0;
+
+  font-size:
+    clamp(34px, 6vw, 76px);
+
+  font-weight: 300;
+
+  line-height: 1.1;
+
+  letter-spacing:
+    clamp(4px, 0.8vw, 10px);
+}
+
+
+/* ========================================
+   DIVIDER
+======================================== */
+
+.launch-line {
+  width:
+    min(160px, 35vw);
+
+  height: 1px;
+
+  margin:
+    clamp(22px, 3vw, 35px)
+    auto;
+
+  background:
+    rgba(255, 255, 255, 0.5);
+}
+
+
+/* ========================================
+   LAUNCH STATUS
+======================================== */
+
+.launch-status {
+  width:
+    min(700px, 100%);
+
+  margin:
+    clamp(28px, 4vw, 42px)
+    auto
+    0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 1px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  background:
+    rgba(255, 255, 255, 0.1);
+}
+
+
+/* ========================================
+   STATUS ITEM
+======================================== */
+
+.launch-status-item {
+  min-height: 95px;
+
+  padding:
+    18px
+    12px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 8px;
+
+  background:
+    rgba(0, 0, 0, 0.35);
+}
+
+
+.launch-status-item span {
+  font-size:
+    clamp(9px, 0.9vw, 12px);
+
+  letter-spacing:
+    0.16em;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+}
+
+
+.launch-status-item strong {
+  font-size:
+    clamp(10px, 1vw, 14px);
+
+  font-weight: 400;
+
+  line-height: 1.4;
+
+  letter-spacing:
+    0.08em;
+
+  color:
+    rgba(255, 255, 255, 0.9);
+}
+
+
+/* ========================================
+   TRAJECTORY PANEL
+======================================== */
+
+.trajectory-panel {
+  width:
+    min(700px, 100%);
+
+  margin:
+    clamp(25px, 4vw, 40px)
+    auto
+    0;
+
+  padding:
+    clamp(18px, 2.5vw, 28px);
+
+  text-align: left;
+
+  border-left:
+    2px solid rgba(255, 255, 255, 0.35);
+
+  background:
+    rgba(255, 255, 255, 0.025);
+}
+
+
+/* ========================================
+   TRAJECTORY LABEL
+======================================== */
+
+.trajectory-panel span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size:
+    clamp(10px, 1vw, 13px);
+
+  letter-spacing:
+    clamp(2px, 0.4vw, 5px);
+
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+
+/* ========================================
+   TRAJECTORY VALUE
+======================================== */
+
+.trajectory-panel strong {
+  display: block;
+
+  font-size:
+    clamp(12px, 1.2vw, 16px);
+
+  font-weight: 400;
+
+  line-height: 1.5;
+
+  letter-spacing:
+    0.08em;
+
+  color:
+    rgba(255, 255, 255, 0.9);
+}
+
+
+/* ========================================
+   TRAJECTORY DESCRIPTION
+======================================== */
+
+.trajectory-panel p {
+  margin:
+    10px
+    0
+    0;
+
+  font-size:
+    clamp(13px, 1.3vw, 16px);
+
+  line-height: 1.7;
+
+  color:
+    rgba(255, 255, 255, 0.72);
+}
+
+
+/* ========================================
+   BEGIN FLIGHT BUTTON
+======================================== */
+
+.launch-content .start-button {
+  margin-top:
+    clamp(28px, 4vw, 45px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .launch-status {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+  .launch-sequence {
+    align-items: flex-start;
+
+    padding:
+      20px
+      12px;
+  }
+
+
+  .launch-content {
+    margin-top:
+      20px;
+
+    max-height:
+      calc(100dvh - 40px);
+
+    padding:
+      24px
+      18px;
+  }
+
+
+  .launch-content h1 {
+    font-size: 32px;
+
+    letter-spacing: 4px;
+  }
+
+
+  .launch-status {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .launch-status-item {
+    min-height: 70px;
+  }
+
+
+  .trajectory-panel {
+    padding:
+      16px;
+  }
+
+
+  .launch-content .start-button {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .launch-content {
+    padding:
+      20px
+      14px;
+  }
+
+
+  .launch-content h1 {
+    font-size: 27px;
+
+    letter-spacing: 3px;
+  }
+
+
+  .launch-label {
+    font-size: 9px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .launch-content .start-button {
+    transition: none;
+  }
+
+}
+
+/* =========================================================
+   SOLAR SYSTEM
+========================================================= */
+
+.solar-system {
+  position: relative;
+
+  width: 100%;
+  height: 100dvh;
+
+  overflow: hidden;
+
+  background: #000;
+
+  color: white;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.solar-background {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(20, 35, 60, 0.45),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      #080d17 0%,
+      #02050a 55%,
+      #000 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.solar-stars {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.55;
+
+  background-image:
+    radial-gradient(
+      white 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      white 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      white 1px,
+      transparent 1px
+    );
+
+  background-size:
+    120px 120px,
+    180px 180px,
+    260px 260px;
+
+  background-position:
+    20px 40px,
+    90px 110px,
+    150px 30px;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.solar-header {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 20;
+
+  height:
+    clamp(65px, 8vh, 90px);
+
+  padding:
+    0
+    clamp(18px, 4vw, 50px);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  background:
+    rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(8px);
+}
+
+
+.solar-brand,
+.solar-mission {
+  font-size:
+    clamp(10px, 1vw, 14px);
+
+  letter-spacing:
+    clamp(2px, 0.35vw, 5px);
+}
+
+
+.solar-brand {
+  color:
+    rgba(255, 255, 255, 0.85);
+}
+
+
+.solar-mission {
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================================
+   SOLAR SYSTEM SCENE
+========================================================= */
+
+.solar-scene {
+  position: absolute;
+
+  left: 50%;
+  top: 47%;
+
+  width:
+    min(850px, 90vw);
+
+  height:
+    min(850px, 90vw);
+
+  transform:
+    translate(-50%, -50%);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   SUN
+========================================================= */
+
+.sun {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width:
+    clamp(70px, 9vw, 120px);
+
+  height:
+    clamp(70px, 9vw, 120px);
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #fff8cf 0%,
+      #ffd96a 35%,
+      #f39b25 65%,
+      #a84b08 100%
+    );
+
+  box-shadow:
+    0 0 25px rgba(255, 190, 60, 0.65),
+    0 0 70px rgba(255, 150, 30, 0.35),
+    0 0 130px rgba(255, 120, 10, 0.18);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  z-index: 5;
+}
+
+
+.sun span {
+  position: absolute;
+
+  top: 105%;
+
+  font-size:
+    clamp(8px, 0.8vw, 11px);
+
+  letter-spacing:
+    0.15em;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================================
+   ORBITS
+========================================================= */
+
+.orbit {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 50%;
+
+  transform:
+    translate(-50%, -50%);
+}
+
+
+/* =========================================================
+   EARTH ORBIT
+========================================================= */
+
+.orbit-earth {
+  width: 27%;
+  height: 27%;
+}
+
+
+/* =========================================================
+   MARS ORBIT
+========================================================= */
+
+.orbit-mars {
+  width: 39%;
+  height: 39%;
+}
+
+
+/* =========================================================
+   JUPITER ORBIT
+========================================================= */
+
+.orbit-jupiter {
+  width: 56%;
+  height: 56%;
+}
+
+
+/* =========================================================
+   SATURN ORBIT
+========================================================= */
+
+.orbit-saturn {
+  width: 76%;
+  height: 76%;
+}
+
+
+/* =========================================================
+   PLANETS
+========================================================= */
+
+.planet {
+  position: absolute;
+
+  left: 50%;
+  top: 0;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* =========================================================
+   EARTH
+========================================================= */
+
+.planet.earth {
+  width:
+    clamp(16px, 2vw, 25px);
+
+  height:
+    clamp(16px, 2vw, 25px);
+
+  background:
+    radial-gradient(
+      circle at 35% 35%,
+      #6fb8ff,
+      #2369a5 55%,
+      #08243e 100%
+    );
+
+  box-shadow:
+    0 0 12px rgba(70, 160, 255, 0.45);
+}
+
+
+/* =========================================================
+   MARS
+========================================================= */
+
+.planet.mars {
+  width:
+    clamp(13px, 1.7vw, 22px);
+
+  height:
+    clamp(13px, 1.7vw, 22px);
+
+  background:
+    radial-gradient(
+      circle at 35% 35%,
+      #d98255,
+      #8f3d27 60%,
+      #43150e 100%
+    );
+}
+
+
+/* =========================================================
+   JUPITER
+========================================================= */
+
+.planet.jupiter {
+  width:
+    clamp(30px, 4vw, 52px);
+
+  height:
+    clamp(30px, 4vw, 52px);
+
+  background:
+    linear-gradient(
+      to bottom,
+      #d8b892 0%,
+      #a87952 25%,
+      #e0c6a0 40%,
+      #956847 58%,
+      #c49a6b 75%,
+      #765039 100%
+    );
+
+  box-shadow:
+    0 0 15px rgba(220, 170, 120, 0.18);
+}
+
+
+/* =========================================================
+   SATURN
+========================================================= */
+
+.planet.saturn {
+  width:
+    clamp(26px, 3.5vw, 45px);
+
+  height:
+    clamp(26px, 3.5vw, 45px);
+
+  background:
+    radial-gradient(
+      circle at 35% 35%,
+      #e2c995,
+      #a98858 65%,
+      #59472f 100%
+    );
+}
+
+
+.planet.saturn::after {
+  content: "";
+
+  position: absolute;
+
+  width:
+    170%;
+
+  height:
+    45%;
+
+  border:
+    2px solid rgba(210, 190, 145, 0.55);
+
+  border-radius: 50%;
+
+  transform:
+    rotate(-15deg);
+}
+
+
+/* =========================================================
+   PLANET LABELS
+========================================================= */
+
+.planet span {
+  position: absolute;
+
+  top: 150%;
+
+  white-space: nowrap;
+
+  font-size:
+    clamp(7px, 0.75vw, 10px);
+
+  letter-spacing:
+    0.12em;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+}
+
+
+/* =========================================================
+   SPACECRAFT
+========================================================= */
+
+.spacecraft {
+  position: absolute;
+
+  left: 57%;
+  top: 32%;
+
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.spacecraft-body {
+  width: 8px;
+  height: 14px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #ffffff,
+      #8ea4b8
+    );
+
+  box-shadow:
+    0 0 10px rgba(180, 220, 255, 0.7);
+}
+
+
+.spacecraft::before,
+.spacecraft::after {
+  content: "";
+
+  position: absolute;
+
+  width: 14px;
+  height: 5px;
+
+  border:
+    1px solid rgba(130, 190, 240, 0.65);
+
+  background:
+    rgba(50, 110, 170, 0.25);
+}
+
+
+.spacecraft::before {
+  transform:
+    translateX(-10px);
+}
+
+
+.spacecraft::after {
+  transform:
+    translateX(10px);
+}
+
+
+.spacecraft span {
+  position: absolute;
+
+  top: 150%;
+
+  white-space: nowrap;
+
+  font-size: 8px;
+
+  letter-spacing: 0.15em;
+
+  color:
+    rgba(255, 255, 255, 0.65);
+}
+
+
+/* =========================================================
+   INFORMATION PANEL
+========================================================= */
+
+.solar-info {
+  position: absolute;
+
+  z-index: 15;
+
+  left: 50%;
+  bottom: clamp(18px, 4vh, 45px);
+
+  transform:
+    translateX(-50%);
+
+  width:
+    min(720px, calc(100% - 30px));
+
+  padding:
+    clamp(16px, 2vw, 24px);
+
+  text-align: center;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.14);
+
+  background:
+    rgba(0, 0, 0, 0.58);
+
+  backdrop-filter: blur(12px);
+}
+
+
+/* =========================================================
+   SOLAR LABEL
+========================================================= */
+
+.solar-label {
+  margin: 0 0 8px;
+
+  font-size:
+    clamp(9px, 0.9vw, 12px);
+
+  letter-spacing:
+    0.18em;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+}
+
+
+/* =========================================================
+   SOLAR TITLE
+========================================================= */
+
+.solar-info h1 {
+  margin: 0;
+
+  font-size:
+    clamp(24px, 4vw, 42px);
+
+  font-weight: 300;
+
+  letter-spacing:
+    clamp(3px, 0.5vw, 7px);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.solar-description {
+  width:
+    min(600px, 100%);
+
+  margin:
+    12px
+    auto;
+
+  font-size:
+    clamp(11px, 1.1vw, 14px);
+
+  line-height: 1.6;
+
+  color:
+    rgba(255, 255, 255, 0.68);
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.solar-status {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 1px;
+
+  margin-top: 18px;
+
+  background:
+    rgba(255, 255, 255, 0.1);
+}
+
+
+.solar-status > div {
+  padding:
+    12px
+    8px;
+
+  background:
+    rgba(0, 0, 0, 0.35);
+}
+
+
+.solar-status span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size:
+    clamp(8px, 0.8vw, 10px);
+
+  letter-spacing:
+    0.12em;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+}
+
+
+.solar-status strong {
+  font-size:
+    clamp(10px, 1vw, 13px);
+
+  font-weight: 400;
+
+  letter-spacing:
+    0.06em;
+}
+
+
+/* =========================================================
+   CONTINUE BUTTON
+========================================================= */
+
+.solar-info .start-button {
+  margin-top: 18px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .solar-scene {
+    width: 700px;
+    height: 700px;
+  }
+
+  .solar-info {
+    bottom: 15px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+  .solar-scene {
+    width: 560px;
+    height: 560px;
+
+    top: 39%;
+  }
+
+
+  .solar-info {
+    bottom: 10px;
+
+    width:
+      calc(100% - 20px);
+
+    padding:
+      14px;
+  }
+
+
+  .solar-info h1 {
+    font-size: 24px;
+  }
+
+
+  .solar-status {
+    grid-template-columns: 1fr;
+  }
+
+
+  .solar-status > div {
+    padding: 8px;
+  }
+
+
+  .solar-info .start-button {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .solar-scene {
+    width: 480px;
+    height: 480px;
+
+    top: 35%;
+  }
+
+
+  .solar-info h1 {
+    font-size: 21px;
+
+    letter-spacing: 3px;
+  }
+
+}
+
+
+/* =========================================================
+   SATURN APPROACH
+   ========================================================= */
+
+.saturn-approach {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #02040a;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Background ---------- */
+
+.saturn-background {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 72% 38%,
+      rgba(180, 150, 110, 0.12),
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 25% 70%,
+      rgba(60, 90, 140, 0.08),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #02040a 0%,
+      #050913 50%,
+      #010207 100%
+    );
+  z-index: 0;
+}
+
+.saturn-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.7;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.45) 1px, transparent 1px);
+  background-size: 95px 95px, 145px 145px;
+  background-position: 10px 20px, 50px 80px;
+}
+
+/* ---------- Header ---------- */
+
+.saturn-header {
+  position: relative;
+  z-index: 10;
+
+  width: 100%;
+  min-height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 clamp(20px, 5vw, 72px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+.saturn-brand {
+  font-size: clamp(12px, 1vw, 15px);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+}
+
+.saturn-mission {
+  font-size: clamp(10px, 0.9vw, 13px);
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- Saturn Scene ---------- */
+
+.saturn-scene {
+  position: relative;
+  z-index: 3;
+
+  flex: 1;
+
+  min-height: 430px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+/* ---------- Saturn ---------- */
+
+.saturn-planet {
+  position: relative;
+
+  width: clamp(260px, 32vw, 470px);
+  aspect-ratio: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateX(10vw);
+}
+
+.saturn-body {
+  position: relative;
+  z-index: 3;
+
+  width: 58%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      #c8b79c 0px,
+      #d6c7ac 10px,
+      #b6a486 20px,
+      #d1bea0 30px
+    );
+
+  box-shadow:
+    inset -35px -20px 50px rgba(0, 0, 0, 0.55),
+    inset 20px 15px 35px rgba(255, 255, 255, 0.12),
+    0 0 70px rgba(190, 160, 110, 0.18);
+}
+
+/* ---------- Saturn Rings ---------- */
+
+.saturn-ring {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 100%;
+  height: 28%;
+
+  border-radius: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-12deg);
+
+  pointer-events: none;
+}
+
+.ring-one {
+  z-index: 2;
+
+  border: clamp(8px, 1vw, 15px) solid rgba(190, 175, 145, 0.48);
+
+  box-shadow:
+    0 0 0 5px rgba(100, 90, 75, 0.18),
+    0 0 0 14px rgba(210, 195, 165, 0.22);
+}
+
+.ring-two {
+  z-index: 4;
+
+  width: 115%;
+  height: 34%;
+
+  border: clamp(2px, 0.35vw, 5px) solid rgba(225, 210, 180, 0.28);
+}
+
+/* ---------- Saturn Label ---------- */
+
+.saturn-label {
+  position: absolute;
+
+  left: 8%;
+  top: 27%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  padding-left: 16px;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+
+  z-index: 8;
+}
+
+.saturn-label span {
+  font-size: clamp(16px, 1.5vw, 24px);
+  letter-spacing: 0.25em;
+  font-weight: 500;
+}
+
+.saturn-label small {
+  font-size: clamp(9px, 0.8vw, 12px);
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---------- Spacecraft Indicator ---------- */
+
+.spacecraft-indicator {
+  position: absolute;
+
+  right: 8%;
+  bottom: 24%;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: clamp(9px, 0.8vw, 12px);
+  letter-spacing: 0.16em;
+
+  z-index: 8;
+}
+
+.indicator-line {
+  width: clamp(45px, 6vw, 90px);
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ---------- Information Panel ---------- */
+
+.saturn-info {
+  position: relative;
+  z-index: 10;
+
+  width: min(100%, 1100px);
+
+  margin: 0 auto;
+
+  padding:
+    34px
+    clamp(24px, 5vw, 70px)
+    42px;
+
+  background: rgba(0, 0, 0, 0.58);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+
+  backdrop-filter: blur(14px);
+
+  box-sizing: border-box;
+}
+
+.saturn-label-text {
+  margin: 0 0 8px;
+
+  font-size: clamp(9px, 0.8vw, 12px);
+
+  letter-spacing: 0.2em;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.saturn-info h1 {
+  margin: 0;
+
+  font-size: clamp(28px, 4vw, 56px);
+
+  font-weight: 400;
+
+  letter-spacing: 0.08em;
+
+  line-height: 1.05;
+}
+
+.saturn-line {
+  width: clamp(50px, 7vw, 90px);
+  height: 1px;
+
+  margin: 20px 0;
+
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.saturn-description {
+  max-width: 700px;
+
+  margin: 0;
+
+  font-size: clamp(13px, 1.1vw, 16px);
+
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.66);
+}
+
+/* ---------- Status ---------- */
+
+.saturn-status {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1px;
+
+  margin: 30px 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.saturn-status > div {
+  min-width: 0;
+
+  padding: 18px 20px;
+
+  background: rgba(4, 7, 13, 0.92);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.saturn-status span {
+  font-size: 9px;
+
+  letter-spacing: 0.16em;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.saturn-status strong {
+  font-size: clamp(11px, 1vw, 14px);
+
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ---------- Button ---------- */
+
+.saturn-info .start-button {
+  min-width: 210px;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .saturn-scene {
+    min-height: 390px;
+  }
+
+  .saturn-planet {
+    transform: translateX(12vw);
+  }
+
+  .saturn-label {
+    left: 5%;
+  }
+
+  .spacecraft-indicator {
+    right: 5%;
+  }
+
+  .saturn-info {
+    padding-top: 28px;
+    padding-bottom: 34px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+  .saturn-header {
+    min-height: 62px;
+    padding: 0 20px;
+  }
+
+  .saturn-scene {
+    min-height: 360px;
+  }
+
+  .saturn-planet {
+    width: 300px;
+    transform: translateX(15%);
+  }
+
+  .saturn-label {
+    left: 20px;
+    top: 18%;
+  }
+
+  .spacecraft-indicator {
+    right: 20px;
+    bottom: 12%;
+  }
+
+  .saturn-info {
+    padding:
+      28px
+      20px
+      32px;
+  }
+
+  .saturn-status {
+    grid-template-columns: 1fr;
+  }
+
+  .saturn-status > div {
+    padding: 15px 16px;
+  }
+
+  .saturn-info .start-button {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .saturn-brand {
+    letter-spacing: 0.14em;
+  }
+
+  .saturn-mission {
+    letter-spacing: 0.1em;
+  }
+
+  .saturn-scene {
+    min-height: 320px;
+  }
+
+  .saturn-planet {
+    width: 250px;
+  }
+
+  .saturn-label {
+    top: 12%;
+  }
+
+  .spacecraft-indicator {
+    bottom: 8%;
+  }
+
+  .saturn-info h1 {
+    font-size: 28px;
+  }
+}
+
+
+/* =========================================================
+   SATURN ORBIT
+   ========================================================= */
+
+.saturn-orbit {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #010308;
+  color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Background ---------- */
+
+.orbit-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      circle at 52% 38%,
+      rgba(184, 157, 112, 0.12),
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 20% 70%,
+      rgba(40, 70, 120, 0.08),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      #010308 0%,
+      #040812 55%,
+      #010205 100%
+    );
+}
+
+.orbit-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  opacity: 0.7;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.85) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.4) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    90px 90px,
+    145px 145px;
+
+  background-position:
+    15px 30px,
+    70px 100px;
+}
+
+/* ---------- Header ---------- */
+
+.orbit-header {
+  position: relative;
+  z-index: 10;
+
+  width: 100%;
+  min-height: 72px;
+
+  padding: 0 clamp(20px, 5vw, 72px);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  background: rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(10px);
+}
+
+.orbit-brand {
+  font-size: clamp(12px, 1vw, 15px);
+  font-weight: 600;
+
+  letter-spacing: 0.22em;
+}
+
+.orbit-mission {
+  font-size: clamp(10px, 0.9vw, 13px);
+
+  letter-spacing: 0.18em;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* =========================================================
+   SATURN SCENE
+   ========================================================= */
+
+.orbit-scene {
+  position: relative;
+  z-index: 3;
+
+  flex: 1;
+
+  min-height: 430px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+/* ---------- Saturn ---------- */
+
+.orbit-saturn-planet {
+  position: relative;
+
+  width: clamp(270px, 34vw, 500px);
+  aspect-ratio: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Saturn Body ---------- */
+
+.orbit-saturn-body {
+  position: relative;
+  z-index: 3;
+
+  width: 55%;
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #d8c7aa 0%,
+      #b7a486 25%,
+      #d0b995 42%,
+      #a99778 60%,
+      #c8b18e 78%,
+      #8f8069 100%
+    );
+
+  box-shadow:
+    inset -35px -20px 55px rgba(0, 0, 0, 0.55),
+    inset 20px 15px 35px rgba(255, 255, 255, 0.1),
+    0 0 80px rgba(190, 160, 110, 0.16);
+}
+
+/* ---------- Saturn Bands ---------- */
+
+.saturn-band {
+  position: absolute;
+
+  left: -10%;
+
+  width: 120%;
+
+  height: 10%;
+
+  border-radius: 50%;
+
+  opacity: 0.35;
+
+  background: rgba(110, 92, 68, 0.5);
+}
+
+.band-one {
+  top: 25%;
+}
+
+.band-two {
+  top: 46%;
+
+  height: 7%;
+
+  background: rgba(235, 220, 190, 0.45);
+}
+
+.band-three {
+  top: 67%;
+
+  height: 12%;
+}
+
+/* =========================================================
+   SATURN RINGS
+   ========================================================= */
+
+.orbit-ring {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  border-radius: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-13deg);
+
+  pointer-events: none;
+}
+
+.ring-back {
+  z-index: 2;
+
+  width: 100%;
+  height: 27%;
+
+  border:
+    clamp(8px, 1vw, 15px)
+    solid
+    rgba(190, 174, 143, 0.45);
+
+  box-shadow:
+    0 0 0 4px rgba(90, 80, 65, 0.2),
+    0 0 0 12px rgba(220, 205, 175, 0.2);
+}
+
+.ring-front {
+  z-index: 5;
+
+  width: 108%;
+  height: 30%;
+
+  border:
+    clamp(3px, 0.4vw, 6px)
+    solid
+    rgba(225, 210, 180, 0.32);
+}
+
+/* =========================================================
+   SPACECRAFT
+   ========================================================= */
+
+.orbit-spacecraft {
+  position: absolute;
+
+  right: 16%;
+  top: 27%;
+
+  z-index: 8;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 8px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: clamp(8px, 0.75vw, 11px);
+
+  letter-spacing: 0.14em;
+}
+
+.orbit-ship {
+  position: relative;
+
+  width: 22px;
+  height: 9px;
+
+  background: rgba(230, 235, 240, 0.9);
+
+  border-radius: 5px;
+
+  box-shadow:
+    0 0 12px rgba(255, 255, 255, 0.55);
+}
+
+.orbit-ship::before,
+.orbit-ship::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+
+  width: 15px;
+  height: 5px;
+
+  background: rgba(180, 190, 200, 0.7);
+
+  transform: translateY(-50%);
+}
+
+.orbit-ship::before {
+  right: 100%;
+}
+
+.orbit-ship::after {
+  left: 100%;
+}
+
+/* =========================================================
+   ORBITAL DISTANCE
+   ========================================================= */
+
+.orbit-distance {
+  position: absolute;
+
+  left: 9%;
+  bottom: 22%;
+
+  z-index: 8;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  padding-left: 15px;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.orbit-distance span {
+  font-size: clamp(8px, 0.7vw, 10px);
+
+  letter-spacing: 0.16em;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.orbit-distance strong {
+  font-size: clamp(11px, 1vw, 14px);
+
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+}
+
+/* =========================================================
+   INFORMATION PANEL
+   ========================================================= */
+
+.orbit-info {
+  position: relative;
+  z-index: 10;
+
+  width: min(100%, 1100px);
+
+  margin: 0 auto;
+
+  padding:
+    34px
+    clamp(24px, 5vw, 70px)
+    42px;
+
+  box-sizing: border-box;
+
+  background: rgba(0, 0, 0, 0.6);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+
+  backdrop-filter: blur(14px);
+}
+
+.orbit-label {
+  margin: 0 0 8px;
+
+  font-size: clamp(9px, 0.8vw, 12px);
+
+  letter-spacing: 0.2em;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.orbit-info h1 {
+  margin: 0;
+
+  font-size: clamp(28px, 4vw, 56px);
+
+  font-weight: 400;
+
+  line-height: 1.05;
+
+  letter-spacing: 0.08em;
+}
+
+.orbit-line {
+  width: clamp(50px, 7vw, 90px);
+
+  height: 1px;
+
+  margin: 20px 0;
+
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.orbit-description {
+  max-width: 720px;
+
+  margin: 0;
+
+  font-size: clamp(13px, 1.1vw, 16px);
+
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.orbit-status {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1px;
+
+  margin: 30px 0;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.orbit-status > div {
+  min-width: 0;
+
+  padding: 18px 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+
+  background: rgba(4, 7, 13, 0.92);
+}
+
+.orbit-status span {
+  font-size: 9px;
+
+  letter-spacing: 0.16em;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.orbit-status strong {
+  font-size: clamp(11px, 1vw, 14px);
+
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* =========================================================
+   ANOMALY WARNING
+   ========================================================= */
+
+.anomaly-warning {
+  margin-bottom: 26px;
+
+  padding: 17px 20px;
+
+  border-left: 2px solid rgba(255, 190, 100, 0.65);
+
+  background: rgba(120, 80, 30, 0.08);
+}
+
+.anomaly-warning span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: clamp(9px, 0.8vw, 12px);
+
+  letter-spacing: 0.16em;
+
+  color: rgba(255, 210, 145, 0.85);
+}
+
+.anomaly-warning p {
+  max-width: 750px;
+
+  margin: 0;
+
+  font-size: clamp(12px, 1vw, 14px);
+
+  line-height: 1.7;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.orbit-info .start-button {
+  min-width: 230px;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .orbit-scene {
+    min-height: 390px;
+  }
+
+  .orbit-spacecraft {
+    right: 10%;
+  }
+
+  .orbit-distance {
+    left: 5%;
+  }
+
+  .orbit-info {
+    padding-top: 28px;
+    padding-bottom: 34px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+  .orbit-header {
+    min-height: 62px;
+
+    padding: 0 20px;
+  }
+
+  .orbit-scene {
+    min-height: 350px;
+  }
+
+  .orbit-saturn-planet {
+    width: 290px;
+  }
+
+  .orbit-spacecraft {
+    right: 7%;
+    top: 20%;
+  }
+
+  .orbit-distance {
+    left: 20px;
+    bottom: 10%;
+  }
+
+  .orbit-info {
+    padding:
+      28px
+      20px
+      32px;
+  }
+
+  .orbit-status {
+    grid-template-columns: 1fr;
+  }
+
+  .orbit-status > div {
+    padding: 15px 16px;
+  }
+
+  .anomaly-warning {
+    padding: 15px 16px;
+  }
+
+  .orbit-info .start-button {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .orbit-brand {
+    letter-spacing: 0.14em;
+  }
+
+  .orbit-mission {
+    letter-spacing: 0.1em;
+  }
+
+  .orbit-scene {
+    min-height: 315px;
+  }
+
+  .orbit-saturn-planet {
+    width: 245px;
+  }
+
+  .orbit-spacecraft {
+    right: 4%;
+  }
+
+  .orbit-info h1 {
+    font-size: 28px;
+  }
+}
+
+
+/* =========================================================
+   SPACE FLIGHT — PLAYER CONTROLLED
+   ========================================================= */
+
+.space-flight {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
+  background: #010207;
+  color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================================
+   SPACE BACKGROUND
+   ========================================================= */
+
+.flight-space {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      circle at 72% 42%,
+      rgba(80, 100, 150, 0.12),
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at 30% 70%,
+      rgba(30, 60, 110, 0.08),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #010207 0%,
+      #030713 55%,
+      #010207 100%
+    );
+}
+
+.flight-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  opacity: 0.75;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.9) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.45) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    90px 90px,
+    150px 150px;
+
+  background-position:
+    15px 25px,
+    65px 90px;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.flight-header {
+  position: relative;
+  z-index: 20;
+
+  width: 100%;
+  min-height: 68px;
+
+  padding: 0 clamp(20px, 4vw, 60px);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  background: rgba(0, 0, 0, 0.28);
+
+  backdrop-filter: blur(12px);
+}
+
+.flight-brand {
+  font-size: clamp(12px, 1vw, 15px);
+
+  font-weight: 600;
+
+  letter-spacing: 0.22em;
+}
+
+.flight-location {
+  font-size: clamp(9px, 0.8vw, 12px);
+
+  letter-spacing: 0.17em;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* =========================================================
+   FLIGHT HUD
+   ========================================================= */
+
+.flight-hud {
+  position: absolute;
+
+  top: 88px;
+  right: clamp(20px, 4vw, 60px);
+
+  z-index: 20;
+
+  display: flex;
+  gap: 1px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  background: rgba(0, 0, 0, 0.6);
+
+  backdrop-filter: blur(12px);
+}
+
+.flight-hud > div {
+  min-width: 95px;
+
+  padding: 12px 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  background: rgba(8, 11, 18, 0.75);
+}
+
+.flight-hud span {
+  font-size: 8px;
+
+  letter-spacing: 0.15em;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.flight-hud strong {
+  font-size: 13px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+}
+
+/* =========================================================
+   FLIGHT AREA
+   ========================================================= */
+
+.flight-area {
+  position: relative;
+  z-index: 5;
+
+  flex: 1;
+
+  min-height: 520px;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* subtle navigation grid */
+
+.flight-area::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.13;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px
+    );
+
+  background-size: 80px 80px;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   PLAYER SPACECRAFT
+   ========================================================= */
+
+.spacecraft-player {
+  position: absolute;
+
+  z-index: 15;
+
+  transform:
+    translate(-50%, -50%);
+
+  transition:
+    left 0.04s linear,
+    top 0.04s linear;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 7px;
+
+  pointer-events: none;
+}
+
+.player-ship {
+  position: relative;
+
+  width: 42px;
+  height: 14px;
+
+  border-radius: 50% 45% 45% 50%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #737d88,
+      #e8edf1,
+      #8e98a2
+    );
+
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.45);
+}
+
+/* cockpit */
+
+.player-ship::before {
+  content: "";
+
+  position: absolute;
+
+  width: 14px;
+  height: 8px;
+
+  left: 11px;
+  top: -5px;
+
+  border-radius: 8px 8px 3px 3px;
+
+  background: #1e2a38;
+
+  border: 1px solid rgba(220, 230, 240, 0.5);
+}
+
+/* engine glow */
+
+.player-ship::after {
+  content: "";
+
+  position: absolute;
+
+  right: 100%;
+  top: 50%;
+
+  width: 28px;
+  height: 4px;
+
+  transform: translateY(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(180, 210, 255, 0.85)
+    );
+
+  filter: blur(2px);
+}
+
+.spacecraft-player span {
+  font-size: 8px;
+
+  letter-spacing: 0.15em;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* =========================================================
+   ANOMALY SIGNAL
+   ========================================================= */
+
+.anomaly-signal {
+  position: absolute;
+
+  z-index: 10;
+
+  right: 18%;
+  top: 52%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 12px;
+
+  transform: translate(50%, -50%);
+}
+
+.signal-pulse {
+  position: relative;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: rgba(180, 205, 255, 0.9);
+
+  box-shadow:
+    0 0 12px rgba(130, 165, 230, 0.9),
+    0 0 35px rgba(90, 130, 220, 0.5);
+
+  animation: anomalyPulse 2s infinite ease-in-out;
+}
+
+.signal-pulse::before,
+.signal-pulse::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -12px;
+
+  border: 1px solid rgba(130, 160, 220, 0.35);
+
+  border-radius: 50%;
+
+  animation: signalWave 2.5s infinite ease-out;
+}
+
+.signal-pulse::after {
+  animation-delay: 1.2s;
+}
+
+@keyframes anomalyPulse {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes signalWave {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+.anomaly-signal span {
+  font-size: 9px;
+
+  letter-spacing: 0.16em;
+
+  color: rgba(190, 210, 245, 0.7);
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   FLIGHT CONTROLS
+   ========================================================= */
+
+.flight-controls {
+  position: absolute;
+
+  left: clamp(20px, 4vw, 60px);
+  bottom: 35px;
+
+  z-index: 20;
+
+  width: 190px;
+
+  padding: 16px 18px;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(10px);
+}
+
+.flight-controls p {
+  margin: 0 0 12px;
+
+  font-size: 9px;
+
+  letter-spacing: 0.17em;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.control-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 7px 0;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+.control-row span:first-child {
+  font-size: 10px;
+
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.control-row span:last-child {
+  font-size: 9px;
+
+  letter-spacing: 0.1em;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* =========================================================
+   SCAN BUTTON
+   ========================================================= */
+
+.scan-button {
+  position: absolute;
+
+  right: clamp(20px, 4vw, 60px);
+  bottom: 35px;
+
+  z-index: 20;
+
+  min-width: 190px;
+
+  padding: 14px 24px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.35);
+
+  background: rgba(5, 8, 14, 0.82);
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  letter-spacing: 0.17em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.scan-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+
+  border-color:
+    rgba(255, 255, 255, 0.65);
+
+  transform: translateY(-2px);
+}
+
+.scan-button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .flight-hud {
+    top: 82px;
+    right: 20px;
+  }
+
+  .flight-area {
+    min-height: 480px;
+  }
+
+  .anomaly-signal {
+    right: 20%;
+  }
+
+  .flight-controls {
+    left: 20px;
+    bottom: 25px;
+  }
+
+  .scan-button {
+    right: 20px;
+    bottom: 25px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+  .flight-header {
+    min-height: 62px;
+
+    padding: 0 20px;
+  }
+
+  .flight-hud {
+    position: relative;
+
+    top: auto;
+    right: auto;
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, 1fr);
+
+    border-left: 0;
+    border-right: 0;
+
+    box-sizing: border-box;
+  }
+
+  .flight-hud > div {
+    min-width: 0;
+
+    padding: 10px 12px;
+  }
+
+  .flight-area {
+    min-height: 430px;
+  }
+
+  .anomaly-signal {
+    right: 20%;
+    top: 55%;
+  }
+
+  .flight-controls {
+    left: 20px;
+    bottom: 20px;
+
+    width: 160px;
+
+    padding: 12px 14px;
+  }
+
+  .scan-button {
+    right: 20px;
+    bottom: 20px;
+
+    min-width: 145px;
+
+    padding: 13px 16px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 450px) {
+  .flight-hud > div {
+    padding: 9px 8px;
+  }
+
+  .flight-hud span {
+    font-size: 7px;
+  }
+
+  .flight-hud strong {
+    font-size: 11px;
+  }
+
+  .flight-area {
+    min-height: 390px;
+  }
+
+  .flight-controls {
+    width: 145px;
+  }
+
+  .scan-button {
+    min-width: 125px;
+
+    font-size: 9px;
+  }
+
+  .anomaly-signal {
+    right: 17%;
   }
 }
