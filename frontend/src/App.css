@@ -5061,3 +5061,867 @@ body {
     right: 17%;
   }
 }
+
+.anomaly-detected-panel {
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+
+  width: min(620px, calc(100% - 40px));
+
+  padding: 24px;
+
+  background: rgba(5, 10, 20, 0.92);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  backdrop-filter: blur(14px);
+
+  text-align: center;
+
+  z-index: 20;
+}
+
+.anomaly-detected-panel > span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 12px;
+
+  letter-spacing: 0.18em;
+
+  color: #ffffff;
+}
+
+.anomaly-detected-panel h2 {
+  margin: 0;
+
+  font-size: clamp(20px, 3vw, 30px);
+
+  letter-spacing: 0.08em;
+}
+
+.anomaly-detected-panel p {
+  margin: 12px 0 20px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  line-height: 1.6;
+}
+
+.anomaly-data {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
+}
+
+.anomaly-data div {
+  padding: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.anomaly-data span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.15em;
+
+  opacity: 0.5;
+}
+
+.anomaly-data strong {
+  font-size: 12px;
+
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 650px) {
+  .anomaly-detected-panel {
+    bottom: 20px;
+
+    padding: 18px;
+  }
+
+  .anomaly-data {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =====================================================
+   REALISTIC SPACECRAFT
+   ===================================================== */
+
+.spacecraft-player {
+  position: absolute;
+  z-index: 10;
+
+  width: 190px;
+  height: 130px;
+
+  pointer-events: none;
+}
+
+.realistic-spacecraft {
+  position: relative;
+
+  width: 190px;
+  height: 100px;
+
+  transform-origin: center center;
+}
+
+/* -----------------------------------------------------
+   CREW MODULE
+   ----------------------------------------------------- */
+
+.crew-module {
+  position: absolute;
+
+  left: 65px;
+  top: 25px;
+
+  width: 58px;
+  height: 48px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d9dde1 0%,
+      #8f979e 45%,
+      #515960 100%
+    );
+
+  border: 1px solid #c9ced2;
+
+  border-radius: 18px 18px 12px 12px;
+
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.35),
+    inset 0 -5px 8px rgba(0, 0, 0, 0.35),
+    0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Crew windows */
+
+.crew-window {
+  position: absolute;
+
+  top: 8px;
+
+  width: 10px;
+  height: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d9e8ed,
+      #536a76 45%,
+      #101820
+    );
+
+  border: 1px solid #aab7bd;
+
+  border-radius: 50%;
+
+  box-shadow:
+    inset 1px 1px 2px rgba(255, 255, 255, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.window-one {
+  left: 12px;
+}
+
+.window-two {
+  left: 25px;
+}
+
+.window-three {
+  left: 38px;
+}
+
+/* -----------------------------------------------------
+   DOCKING NOSE
+   ----------------------------------------------------- */
+
+.spacecraft-nose {
+  position: absolute;
+
+  left: 45px;
+  top: 34px;
+
+  width: 25px;
+  height: 30px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #444c52,
+      #aeb5ba,
+      #596168
+    );
+
+  clip-path: polygon(
+    0 15%,
+    65% 0,
+    100% 50%,
+    65% 100%,
+    0 85%
+  );
+
+  border: 1px solid #adb3b7;
+}
+
+.docking-port {
+  position: absolute;
+
+  left: 2px;
+  top: 10px;
+
+  width: 8px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #20262b;
+
+  border: 1px solid #8d969c;
+}
+
+.sensor-window {
+  position: absolute;
+
+  right: 4px;
+  top: 10px;
+
+  width: 6px;
+  height: 9px;
+
+  background: #17262e;
+
+  border: 1px solid #a9bdc5;
+}
+
+/* -----------------------------------------------------
+   SERVICE MODULE
+   ----------------------------------------------------- */
+
+.service-module {
+  position: absolute;
+
+  left: 116px;
+  top: 29px;
+
+  width: 43px;
+  height: 40px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #626a70,
+      #aeb4b8 50%,
+      #454c51
+    );
+
+  border: 1px solid #858d92;
+
+  border-radius: 5px;
+
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    inset 0 -4px 6px rgba(0, 0, 0, 0.35);
+}
+
+.service-band {
+  position: absolute;
+
+  left: 9px;
+  top: 0;
+
+  width: 5px;
+  height: 100%;
+
+  background: #343b40;
+
+  opacity: 0.8;
+}
+
+.equipment-box {
+  position: absolute;
+
+  right: 6px;
+  top: 7px;
+
+  width: 10px;
+  height: 8px;
+
+  background: #353c41;
+
+  border: 1px solid #7f878c;
+}
+
+/* -----------------------------------------------------
+   RADIATOR
+   ----------------------------------------------------- */
+
+.spacecraft-radiator {
+  position: absolute;
+
+  left: 124px;
+  top: 7px;
+
+  width: 31px;
+  height: 10px;
+
+  display: flex;
+
+  gap: 3px;
+
+  transform: skewX(-15deg);
+}
+
+.spacecraft-radiator span {
+  width: 5px;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #9ba0a4,
+      #e1e4e6,
+      #777d82
+    );
+
+  border: 1px solid #666c71;
+}
+
+/* -----------------------------------------------------
+   SOLAR ARRAYS
+   ----------------------------------------------------- */
+
+.solar-array {
+  position: absolute;
+
+  top: 42px;
+
+  width: 48px;
+  height: 38px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 2px;
+
+  padding: 2px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #172536,
+      #29445d
+    );
+
+  border: 1px solid #7d8992;
+
+  box-shadow:
+    inset 0 0 4px rgba(255, 255, 255, 0.15);
+}
+
+.solar-left {
+  left: -5px;
+
+  transform:
+    perspective(100px)
+    rotateY(18deg);
+}
+
+.solar-right {
+  right: -5px;
+
+  transform:
+    perspective(100px)
+    rotateY(-18deg);
+}
+
+.solar-array span {
+  border: 1px solid rgba(190, 210, 225, 0.25);
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #263d53 0,
+      #263d53 5px,
+      #172838 5px,
+      #172838 6px
+    );
+}
+
+/* -----------------------------------------------------
+   ENGINE MODULE
+   ----------------------------------------------------- */
+
+.engine-module {
+  position: absolute;
+
+  left: 154px;
+  top: 36px;
+
+  width: 28px;
+  height: 28px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #454d52,
+      #8b9398
+    );
+
+  border: 1px solid #7d858a;
+
+  border-radius: 4px;
+}
+
+.engine-one,
+.engine-two {
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  background: #171c20;
+
+  border: 1px solid #727b80;
+
+  border-radius: 50%;
+}
+
+.engine-one {
+  left: 4px;
+  top: 4px;
+}
+
+.engine-two {
+  left: 4px;
+  bottom: 4px;
+}
+
+/* -----------------------------------------------------
+   RCS THRUSTERS
+   ----------------------------------------------------- */
+
+.rcs-thruster {
+  position: absolute;
+
+  width: 9px;
+  height: 5px;
+
+  background: #353c40;
+
+  border: 1px solid #858d92;
+
+  border-radius: 2px;
+}
+
+.thruster-top {
+  left: 136px;
+  top: 20px;
+}
+
+.thruster-bottom {
+  left: 136px;
+  bottom: 18px;
+}
+
+/* -----------------------------------------------------
+   ENGINE / THRUSTER GLOW
+   ----------------------------------------------------- */
+
+.realistic-spacecraft::after {
+  content: "";
+
+  position: absolute;
+
+  left: 177px;
+  top: 45px;
+
+  width: 16px;
+  height: 10px;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(220, 235, 245, 0.75),
+      rgba(120, 150, 170, 0.25),
+      transparent 70%
+    );
+
+  opacity: 0.7;
+
+  filter: blur(2px);
+}
+
+/* -----------------------------------------------------
+   LABEL
+   ----------------------------------------------------- */
+
+.spacecraft-player > span {
+  position: absolute;
+
+  left: 50%;
+  top: 108px;
+
+  transform: translateX(-50%);
+
+  font-size: 9px;
+
+  letter-spacing: 0.18em;
+
+  white-space: nowrap;
+
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* -----------------------------------------------------
+   MOBILE
+   ----------------------------------------------------- */
+
+@media (max-width: 650px) {
+  .spacecraft-player {
+    width: 150px;
+    height: 110px;
+
+    transform-origin: center;
+  }
+
+  .realistic-spacecraft {
+    transform: scale(0.8);
+    transform-origin: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .spacecraft-player {
+    width: 125px;
+  }
+
+  .realistic-spacecraft {
+    transform: scale(0.65);
+  }
+}
+
+/* =====================================================
+   GRAVITATIONAL DISTURBANCE
+   ===================================================== */
+
+.gravity-disturbance {
+  animation: gravityShake 0.18s infinite;
+}
+
+@keyframes gravityShake {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(0.5px, -0.5px);
+  }
+
+  50% {
+    transform: translate(-0.5px, 0.5px);
+  }
+
+  75% {
+    transform: translate(0.4px, 0.4px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Warning */
+
+.gravity-warning {
+  position: absolute;
+
+  top: 82px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 30;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 10px 18px;
+
+  border: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.25
+  );
+
+  background: rgba(
+    5,
+    10,
+    18,
+    0.78
+  );
+
+  backdrop-filter: blur(10px);
+
+  text-align: center;
+}
+
+.gravity-warning span {
+  font-size: 10px;
+
+  letter-spacing: 0.18em;
+}
+
+.gravity-warning strong {
+  font-size: 12px;
+
+  letter-spacing: 0.12em;
+
+  font-weight: 500;
+}
+
+/* Active anomaly */
+
+.anomaly-active .signal-pulse {
+  width: 90px;
+  height: 90px;
+
+  animation:
+    anomalyPulse 1.2s infinite,
+    anomalyDistortion 0.4s infinite;
+}
+
+@keyframes anomalyDistortion {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.35);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+/* Active anomaly label */
+
+.anomaly-active span {
+  letter-spacing: 0.12em;
+
+  font-size: 10px;
+}
+
+/* Responsive warning */
+
+@media (max-width: 650px) {
+  .gravity-warning {
+    top: 72px;
+
+    width: max-content;
+    max-width: calc(100% - 30px);
+
+    padding: 8px 12px;
+  }
+
+  .gravity-warning strong {
+    font-size: 10px;
+  }
+}
+
+/* =====================================================
+   SCIENTIFIC INVESTIGATION
+   ===================================================== */
+
+.investigation-panel {
+  position: absolute;
+
+  left: 50%;
+  bottom: 32px;
+
+  transform: translateX(-50%);
+
+  width: min(650px, calc(100% - 40px));
+
+  padding: 24px;
+
+  background: rgba(5, 10, 20, 0.94);
+
+  border: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.25
+  );
+
+  backdrop-filter: blur(16px);
+
+  text-align: center;
+
+  z-index: 25;
+}
+
+.investigation-panel > span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.18em;
+
+  opacity: 0.55;
+}
+
+.investigation-panel h2 {
+  margin: 0;
+
+  font-size: clamp(
+    20px,
+    3vw,
+    28px
+  );
+
+  letter-spacing: 0.08em;
+}
+
+.investigation-panel p {
+  max-width: 520px;
+
+  margin: 12px auto 20px;
+
+  color: rgba(
+    255,
+    255,
+    255,
+    0.62
+  );
+
+  line-height: 1.6;
+}
+
+.analysis-reading {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+}
+
+.analysis-reading div {
+  padding: 12px;
+
+  border: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.12
+  );
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.03
+  );
+}
+
+.analysis-reading span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 9px;
+
+  letter-spacing: 0.12em;
+
+  opacity: 0.5;
+}
+
+.analysis-reading strong {
+  font-size: 14px;
+
+  letter-spacing: 0.06em;
+}
+
+.analysis-progress {
+  width: 100%;
+
+  height: 3px;
+
+  margin-bottom: 12px;
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.1
+  );
+
+  overflow: hidden;
+}
+
+.analysis-progress div {
+  height: 100%;
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.8
+  );
+
+  transition: width 0.35s linear;
+}
+
+.investigation-panel small {
+  font-size: 9px;
+
+  letter-spacing: 0.12em;
+
+  opacity: 0.4;
+}
+
+@media (max-width: 650px) {
+  .investigation-panel {
+    bottom: 20px;
+
+    padding: 18px;
+  }
+
+  .analysis-reading {
+    grid-template-columns: 1fr;
+  }
+}

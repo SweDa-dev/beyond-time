@@ -13,6 +13,9 @@ import SpaceFlight from "./pages/SpaceFlight";
 function App() {
   const [currentScreen, setCurrentScreen] = useState("menu");
 
+  const [anomalyDetected, setAnomalyDetected] =
+    useState(false);
+
   if (currentScreen === "earth") {
     return (
       <EarthMission
@@ -54,44 +57,49 @@ function App() {
   }
 
   if (currentScreen === "solar-system") {
-  return (
-    <SolarSystem
-      onContinue={() => {
-        setCurrentScreen("saturn-approach");
-      }}
-    />
-  );
-}
+    return (
+      <SolarSystem
+        onContinue={() => {
+          setCurrentScreen("saturn-approach");
+        }}
+      />
+    );
+  }
 
-if (currentScreen === "saturn-approach") {
-  return (
-    <SaturnApproach
-      onContinue={() => {
-        setCurrentScreen("saturn-orbit");
-      }}
-    />
-  );
-}
+  if (currentScreen === "saturn-approach") {
+    return (
+      <SaturnApproach
+        onContinue={() => {
+          setCurrentScreen("saturn-orbit");
+        }}
+      />
+    );
+  }
 
-if (currentScreen === "saturn-orbit") {
-  return (
-    <SaturnOrbit
-      onContinue={() => {
-        setCurrentScreen("space-flight");
-      }}
-    />
-  );
-}
+  if (currentScreen === "saturn-orbit") {
+    return (
+      <SaturnOrbit
+        onContinue={() => {
+          setCurrentScreen("space-flight");
+        }}
+      />
+    );
+  }
 
-if (currentScreen === "space-flight") {
-  return (
-    <SpaceFlight
-      onAnomalyDetected={() => {
-        console.log("Anomaly scan initiated!");
-      }}
-    />
-  );
-}
+  if (currentScreen === "space-flight") {
+    return (
+      <SpaceFlight
+        anomalyDetected={anomalyDetected}
+        onAnomalyDetected={() => {
+          setAnomalyDetected(true);
+
+          console.log(
+            "Anomaly scan initiated!"
+          );
+        }}
+      />
+    );
+  }
 
   return (
     <MainMenu
