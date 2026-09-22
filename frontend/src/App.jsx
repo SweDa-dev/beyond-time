@@ -11,7 +11,8 @@ import SaturnOrbit from "./pages/SaturnOrbit";
 import SpaceFlight from "./pages/SpaceFlight";
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useState("menu");
+  const [currentScreen, setCurrentScreen] =
+    useState("menu");
 
   const [anomalyDetected, setAnomalyDetected] =
     useState(false);
@@ -89,7 +90,9 @@ function App() {
   if (currentScreen === "space-flight") {
     return (
       <SpaceFlight
-        anomalyDetected={anomalyDetected}
+        anomalyDetected={
+          anomalyDetected
+        }
         onAnomalyDetected={() => {
           setAnomalyDetected(true);
 
