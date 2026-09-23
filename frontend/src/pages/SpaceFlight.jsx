@@ -9,15 +9,12 @@ function SpaceFlight({
     y: 50,
   });
 
-  const [velocity, setVelocity] = useState({
-    x: 0,
-    y: 0,
-  });
-
   const [rotation, setRotation] = useState(0);
+
   const [fuel, setFuel] = useState(100);
   const [distance, setDistance] = useState(100);
   const [signalStrength, setSignalStrength] = useState(0);
+
   const [canScan, setCanScan] = useState(false);
 
   const [investigationMode, setInvestigationMode] =
@@ -26,24 +23,62 @@ function SpaceFlight({
   const [investigationProgress, setInvestigationProgress] =
     useState(0);
 
+  /*
+   * GAME STATE
+   *
+   * Refs are used here so the animation loop
+   * does not restart every time velocity changes.
+   */
+
+  const positionRef = useRef({
+    x: 25,
+    y: 50,
+  });
+
+  const velocityRef = useRef({
+    x: 0,
+    y: 0,
+  });
+
+  const rotationRef = useRef(0);
+
   const keysRef = useRef(new Set());
+
+  const trajectoryRef = useRef([]);
+
+  const animationFrameRef = useRef(null);
 
   const anomaly = {
     x: 78,
     y: 50,
   };
 
+  /*
+   * KEYBOARD CONTROLS
+   */
+
   useEffect(() => {
     const handleKeyDown = (event) => {
-      keysRef.current.add(event.key.toLowerCase());
+      keysRef.current.add(
+        event.key.toLowerCase()
+      );
     };
 
     const handleKeyUp = (event) => {
-      keysRef.current.delete(event.key.toLowerCase());
+      keysRef.current.delete(
+        event.key.toLowerCase()
+      );
     };
 
-    window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("keyup", handleKeyUp);
+    window.addEventListener(
+      "keydown",
+      handleKeyDown
+    );
+
+    window.addEventListener(
+      "keyup",
+      handleKeyUp
+    );
 
     return () => {
       window.removeEventListener(
@@ -58,217 +93,314 @@ function SpaceFlight({
     };
   }, []);
 
+  /*
+   * SPACECRAFT PHYSICS LOOP
+   */
+
   useEffect(() => {
-    let animationFrame;
-
     const updateFlight = () => {
-      setPosition((currentPosition) => {
-        let x = currentPosition.x;
-        let y = currentPosition.y;
+      const keys = keysRef.current;
 
-        let velocityX = velocity.x;
-        let velocityY = velocity.y;
+      const position = positionRef.current;
 
-        const keys = keysRef.current;
+      const velocity = velocityRef.current;
 
-        const movementSpeed = 0.055;
+      let x = position.x;
 
-        /*
-         * BASIC SPACECRAFT MOVEMENT
-         */
+      let y = position.y;
 
-        if (
-          keys.has("arrowup") ||
-          keys.has("w")
-        ) {
-          velocityY -= movementSpeed;
-        }
+      let velocityX = velocity.x;
 
-        if (
-          keys.has("arrowdown") ||
-          keys.has("s")
-        ) {
-          velocityY += movementSpeed;
-        }
+      let velocityY = velocity.y;
 
-        if (
-          keys.has("arrowleft") ||
-          keys.has("a")
-        ) {
-          velocityX -= movementSpeed;
-        }
+      const movementSpeed = 0.055;
 
-        if (
-          keys.has("arrowright") ||
-          keys.has("d")
-        ) {
-          velocityX += movementSpeed;
-        }
+      /*
+       * FORWARD / BACKWARD
+       */
 
-        /*
-         * ROTATION
-         *
-         * Hold two directions together.
-         */
+      if (
+        keys.has("arrowup") ||
+        keys.has("w")
+      ) {
+        velocityY -= movementSpeed;
+      }
 
-        const rotateLeft =
-          (keys.has("arrowup") &&
-            keys.has("arrowleft")) ||
-          (keys.has("arrowdown") &&
-            keys.has("arrowleft"));
+      if (
+        keys.has("arrowdown") ||
+        keys.has("s")
+      ) {
+        velocityY += movementSpeed;
+      }
 
-        const rotateRight =
-          (keys.has("arrowup") &&
-            keys.has("arrowright")) ||
-          (keys.has("arrowdown") &&
-            keys.has("arrowright"));
+      /*
+       * LEFT / RIGHT
+       */
 
-        if (rotateLeft) {
-          setRotation(
-            (currentRotation) =>
-              currentRotation - 2
-          );
-        }
+      if (
+        keys.has("arrowleft") ||
+        keys.has("a")
+      ) {
+        velocityX -= movementSpeed;
+      }
 
-        if (rotateRight) {
-          setRotation(
-            (currentRotation) =>
-              currentRotation + 2
-          );
-        }
+      if (
+        keys.has("arrowright") ||
+        keys.has("d")
+      ) {
+        velocityX += movementSpeed;
+      }
 
-        /*
-         * FICTIONAL GRAVITATIONAL DISTURBANCE
-         *
-         * This represents the game's anomaly effect.
-         */
+      /*
+       * ROTATION
+       */
 
-        if (anomalyDetected) {
-          const deltaX = anomaly.x - x;
-          const deltaY = anomaly.y - y;
+      const rotateLeft =
+        (keys.has("arrowup") &&
+          keys.has("arrowleft")) ||
+        (keys.has("arrowdown") &&
+          keys.has("arrowleft"));
 
-          const anomalyDistance = Math.sqrt(
+      const rotateRight =
+        (keys.has("arrowup") &&
+          keys.has("arrowright")) ||
+        (keys.has("arrowdown") &&
+          keys.has("arrowright"));
+
+      if (rotateLeft) {
+        rotationRef.current -= 1.5;
+      }
+
+      if (rotateRight) {
+        rotationRef.current += 1.5;
+      }
+
+      /*
+       * GRAVITATIONAL FIELD
+       *
+       * This is a fictional gameplay mechanic.
+       *
+       * It represents the effect of the
+       * unexplained anomaly in the game.
+       */
+
+      if (anomalyDetected) {
+        const deltaX = anomaly.x - x;
+
+        const deltaY = anomaly.y - y;
+
+        const anomalyDistance =
+          Math.sqrt(
             deltaX * deltaX +
               deltaY * deltaY
           );
 
-          if (anomalyDistance < 30) {
-            const gravitationalEffect =
-              (30 - anomalyDistance) *
-              0.0008;
+        if (anomalyDistance < 30) {
+          const gravitationalEffect =
+            (30 - anomalyDistance) *
+            0.0008;
 
-            velocityX +=
-              deltaX * gravitationalEffect;
+          velocityX +=
+            deltaX *
+            gravitationalEffect;
 
-            velocityY +=
-              deltaY * gravitationalEffect;
+          velocityY +=
+            deltaY *
+            gravitationalEffect;
 
-            setRotation(
-              (currentRotation) =>
-                currentRotation +
-                Math.sin(Date.now() / 250) *
-                  0.15
-            );
-          }
+          rotationRef.current +=
+            Math.sin(
+              Date.now() / 250
+            ) * 0.15;
         }
+      }
 
-        /*
-         * APPLY VELOCITY
-         */
+      /*
+       * VELOCITY DAMPING
+       */
 
-        x += velocityX;
-        y += velocityY;
+      velocityX *= 0.985;
+      velocityY *= 0.985;
 
-        /*
-         * KEEP SPACECRAFT INSIDE FLIGHT AREA
-         */
+      /*
+       * APPLY VELOCITY
+       */
 
-        x = Math.max(
-          5,
-          Math.min(95, x)
-        );
+      x += velocityX;
 
-        y = Math.max(
-          10,
-          Math.min(90, y)
-        );
+      y += velocityY;
 
-        setVelocity({
-          x: velocityX * 0.985,
-          y: velocityY * 0.985,
+      /*
+       * KEEP SHIP INSIDE PLAY AREA
+       */
+
+      x = Math.max(
+        5,
+        Math.min(95, x)
+      );
+
+      y = Math.max(
+        10,
+        Math.min(90, y)
+      );
+
+      /*
+       * UPDATE REFS
+       */
+
+      positionRef.current = {
+        x,
+        y,
+      };
+
+      velocityRef.current = {
+        x: velocityX,
+        y: velocityY,
+      };
+
+      /*
+       * UPDATE TRAJECTORY
+       */
+
+      const lastPoint =
+        trajectoryRef.current[
+          trajectoryRef.current.length - 1
+        ];
+
+      if (
+        !lastPoint ||
+        Math.abs(lastPoint.x - x) > 0.15 ||
+        Math.abs(lastPoint.y - y) > 0.15
+      ) {
+        trajectoryRef.current.push({
+          x,
+          y,
         });
 
         /*
-         * DISTANCE TO ANOMALY
+         * Keep only the most recent
+         * 100 trajectory points.
          */
 
-        const dx = anomaly.x - x;
-        const dy = anomaly.y - y;
+        if (
+          trajectoryRef.current.length >
+          100
+        ) {
+          trajectoryRef.current.shift();
+        }
+      }
 
-        const currentDistance = Math.sqrt(
-          dx * dx + dy * dy
+      /*
+       * CALCULATE DISTANCE
+       */
+
+      const deltaX =
+        anomaly.x - x;
+
+      const deltaY =
+        anomaly.y - y;
+
+      const currentDistance =
+        Math.sqrt(
+          deltaX * deltaX +
+            deltaY * deltaY
         );
 
-        setDistance(
-          Math.max(
-            0,
+      /*
+       * SIGNAL STRENGTH
+       */
+
+      const signal =
+        Math.max(
+          0,
+          Math.min(
+            100,
             Math.round(
-              currentDistance
+              100 -
+                currentDistance * 2
             )
           )
         );
 
-        /*
-         * SIGNAL STRENGTH
-         */
+      /*
+       * UPDATE UI STATE
+       */
 
-        const signal =
-          Math.max(
-            0,
-            Math.min(
-              100,
-              Math.round(
-                100 -
-                  currentDistance * 2
-              )
-            )
-          );
-
-        setSignalStrength(signal);
-
-        /*
-         * ENABLE SCAN WHEN CLOSE ENOUGH
-         */
-
-        if (currentDistance < 25) {
-          setCanScan(true);
-        } else {
-          setCanScan(false);
-        }
-
-        return {
-          x,
-          y,
-        };
+      setPosition({
+        x,
+        y,
       });
 
-      animationFrame =
+      setRotation(
+        rotationRef.current
+      );
+
+      setDistance(
+        Math.max(
+          0,
+          Math.round(
+            currentDistance
+          )
+        )
+      );
+
+      setSignalStrength(signal);
+
+      /*
+       * SCAN RANGE
+       */
+
+      setCanScan(
+        currentDistance < 25
+      );
+
+      /*
+       * SMALL FUEL CONSUMPTION
+       *
+       * Only consume fuel while moving.
+       */
+
+      const isMoving =
+        Math.abs(velocityX) >
+          0.001 ||
+        Math.abs(velocityY) >
+          0.001;
+
+      if (isMoving) {
+        setFuel(
+          (currentFuel) =>
+            Math.max(
+              0,
+              currentFuel - 0.002
+            )
+        );
+      }
+
+      animationFrameRef.current =
         requestAnimationFrame(
           updateFlight
         );
     };
 
-    animationFrame =
+    animationFrameRef.current =
       requestAnimationFrame(
         updateFlight
       );
 
     return () => {
-      cancelAnimationFrame(
-        animationFrame
-      );
+      if (
+        animationFrameRef.current
+      ) {
+        cancelAnimationFrame(
+          animationFrameRef.current
+        );
+      }
     };
-  }, [anomalyDetected, velocity]);
+  }, [anomalyDetected]);
+
+  /*
+   * SCAN ANOMALY
+   */
 
   const handleScan = () => {
     if (!canScan) {
@@ -304,6 +436,10 @@ function SpaceFlight({
         }
       }, 400);
   };
+
+  /*
+   * MOBILE / MOUSE CONTROLS
+   */
 
   const addKey = (key) => {
     keysRef.current.add(key);
@@ -394,14 +530,39 @@ function SpaceFlight({
           </span>
 
           <strong>
-            {Math.abs(
-              velocity.x
+            {Math.sqrt(
+              velocityRef.current.x *
+                velocityRef.current.x +
+                velocityRef.current.y *
+                velocityRef.current.y
             ).toFixed(2)}
           </strong>
         </div>
       </section>
 
       <section className="flight-area">
+
+        /*
+         * TRAJECTORY
+         */
+
+        <div className="trajectory-line">
+          {trajectoryRef.current.map(
+            (point, index) => (
+              <span
+                key={index}
+                style={{
+                  left: `${point.x}%`,
+                  top: `${point.y}%`,
+                }}
+              />
+            )
+          )}
+        </div>
+
+        /*
+         * ANOMALY
+         */
 
         <div
           className={`anomaly ${
@@ -420,6 +581,10 @@ function SpaceFlight({
             UNKNOWN GRAVITATIONAL SOURCE
           </span>
         </div>
+
+        /*
+         * SPACECRAFT
+         */
 
         <div
           className="spacecraft-player"
@@ -441,21 +606,17 @@ function SpaceFlight({
             </div>
 
             <div className="crew-module">
-
               <div className="crew-window window-one"></div>
 
               <div className="crew-window window-two"></div>
 
               <div className="crew-window window-three"></div>
-
             </div>
 
             <div className="service-module">
-
               <div className="service-band"></div>
 
               <div className="equipment-box"></div>
-
             </div>
 
             <div className="spacecraft-radiator">
@@ -480,11 +641,9 @@ function SpaceFlight({
             </div>
 
             <div className="engine-module">
-
               <div className="engine-one"></div>
 
               <div className="engine-two"></div>
-
             </div>
 
             <div className="rcs-thruster thruster-top"></div>
@@ -607,7 +766,6 @@ function SpaceFlight({
       </section>
 
       <section className="signal-status">
-
         <span>
           DEEP SPACE INSTRUMENTATION
         </span>
@@ -615,7 +773,6 @@ function SpaceFlight({
         <strong>
           SIGNAL STRENGTH: {signalStrength}%
         </strong>
-
       </section>
 
       {investigationMode &&
@@ -678,7 +835,7 @@ function SpaceFlight({
                 style={{
                   width: `${investigationProgress}%`,
                 }}
-              ></div>
+              />
 
             </div>
 
